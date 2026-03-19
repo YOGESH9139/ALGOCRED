@@ -1,0 +1,377 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cyberpunk Color Palette */
+  --neon-magenta: oklch(0.7 0.25 330);
+  --electric-cyan: oklch(0.8 0.2 195);
+  --acid-purple: oklch(0.6 0.25 290);
+  --deep-void: oklch(0.08 0.02 280);
+  --charcoal-steel: oklch(0.15 0.02 270);
+  --muted-silver: oklch(0.65 0.01 270);
+  --toxic-green: oklch(0.75 0.22 145);
+  --warning-amber: oklch(0.8 0.18 85);
+
+  /* Design Tokens */
+  --background: var(--deep-void);
+  --foreground: oklch(0.95 0.01 270);
+  --card: var(--charcoal-steel);
+  --card-foreground: oklch(0.95 0.01 270);
+  --popover: var(--charcoal-steel);
+  --popover-foreground: oklch(0.95 0.01 270);
+  --primary: var(--neon-magenta);
+  --primary-foreground: oklch(0.1 0.02 330);
+  --secondary: var(--electric-cyan);
+  --secondary-foreground: oklch(0.1 0.02 195);
+  --muted: oklch(0.2 0.02 270);
+  --muted-foreground: var(--muted-silver);
+  --accent: var(--acid-purple);
+  --accent-foreground: oklch(0.95 0.01 290);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.95 0.01 25);
+  --border: oklch(0.25 0.04 280);
+  --input: oklch(0.12 0.02 270);
+  --ring: var(--neon-magenta);
+  --success: var(--toxic-green);
+  --warning: var(--warning-amber);
+  --chart-1: var(--neon-magenta);
+  --chart-2: var(--electric-cyan);
+  --chart-3: var(--acid-purple);
+  --chart-4: var(--toxic-green);
+  --chart-5: var(--warning-amber);
+  --radius: 0.5rem;
+  --sidebar: var(--charcoal-steel);
+  --sidebar-foreground: oklch(0.95 0.01 270);
+  --sidebar-primary: var(--neon-magenta);
+  --sidebar-primary-foreground: oklch(0.1 0.02 330);
+  --sidebar-accent: var(--acid-purple);
+  --sidebar-accent-foreground: oklch(0.95 0.01 290);
+  --sidebar-border: oklch(0.25 0.04 280);
+  --sidebar-ring: var(--neon-magenta);
+}
+
+.dark {
+  --background: var(--deep-void);
+  --foreground: oklch(0.95 0.01 270);
+  --card: var(--charcoal-steel);
+  --card-foreground: oklch(0.95 0.01 270);
+  --popover: var(--charcoal-steel);
+  --popover-foreground: oklch(0.95 0.01 270);
+  --primary: var(--neon-magenta);
+  --primary-foreground: oklch(0.1 0.02 330);
+  --secondary: var(--electric-cyan);
+  --secondary-foreground: oklch(0.1 0.02 195);
+  --muted: oklch(0.2 0.02 270);
+  --muted-foreground: var(--muted-silver);
+  --accent: var(--acid-purple);
+  --accent-foreground: oklch(0.95 0.01 290);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.95 0.01 25);
+  --border: oklch(0.25 0.04 280);
+  --input: oklch(0.12 0.02 270);
+  --ring: var(--neon-magenta);
+  --sidebar: var(--charcoal-steel);
+  --sidebar-foreground: oklch(0.95 0.01 270);
+  --sidebar-primary: var(--neon-magenta);
+  --sidebar-primary-foreground: oklch(0.1 0.02 330);
+  --sidebar-accent: var(--acid-purple);
+  --sidebar-accent-foreground: oklch(0.95 0.01 290);
+  --sidebar-border: oklch(0.25 0.04 280);
+  --sidebar-ring: var(--neon-magenta);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-neon-magenta: var(--neon-magenta);
+  --color-electric-cyan: var(--electric-cyan);
+  --color-acid-purple: var(--acid-purple);
+  --color-deep-void: var(--deep-void);
+  --color-charcoal-steel: var(--charcoal-steel);
+  --color-muted-silver: var(--muted-silver);
+  --color-toxic-green: var(--toxic-green);
+  --color-warning-amber: var(--warning-amber);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Cyberpunk Animations */
+@keyframes neon-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.85;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes glow-flicker {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--neon-magenta), 0 0 10px var(--neon-magenta), 0 0 20px var(--neon-magenta);
+  }
+  33% {
+    box-shadow: 0 0 3px var(--neon-magenta), 0 0 8px var(--neon-magenta), 0 0 15px var(--neon-magenta);
+  }
+  66% {
+    box-shadow: 0 0 7px var(--neon-magenta), 0 0 14px var(--neon-magenta), 0 0 25px var(--neon-magenta);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes hologram-shift {
+  0%, 100% {
+    transform: translateX(0) skewX(0deg);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: translateX(-2px) skewX(-0.5deg);
+    filter: hue-rotate(10deg);
+  }
+  75% {
+    transform: translateX(2px) skewX(0.5deg);
+    filter: hue-rotate(-10deg);
+  }
+}
+
+.animate-neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.animate-glow-flicker {
+  animation: glow-flicker 3s ease-in-out infinite;
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.animate-border-flow {
+  animation: border-flow 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-data-stream {
+  animation: data-stream 4s linear infinite;
+}
+
+.animate-hologram-shift {
+  animation: hologram-shift 5s ease-in-out infinite;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: linear-gradient(
+    135deg,
+    oklch(0.15 0.02 280 / 0.6),
+    oklch(0.1 0.02 280 / 0.4)
+  );
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(0.3 0.04 280 / 0.5);
+}
+
+/* Scanline overlay */
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    oklch(0 0 0 / 0.03) 2px,
+    oklch(0 0 0 / 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Neon text glow */
+.neon-text-magenta {
+  text-shadow: 
+    0 0 5px var(--neon-magenta),
+    0 0 10px var(--neon-magenta),
+    0 0 20px var(--neon-magenta);
+}
+
+.neon-text-cyan {
+  text-shadow: 
+    0 0 5px var(--electric-cyan),
+    0 0 10px var(--electric-cyan),
+    0 0 20px var(--electric-cyan);
+}
+
+.neon-text-purple {
+  text-shadow: 
+    0 0 5px var(--acid-purple),
+    0 0 10px var(--acid-purple),
+    0 0 20px var(--acid-purple);
+}
+
+/* Glow borders */
+.glow-border-magenta {
+  box-shadow: 
+    0 0 5px var(--neon-magenta),
+    0 0 10px var(--neon-magenta),
+    inset 0 0 5px oklch(0.7 0.25 330 / 0.1);
+}
+
+.glow-border-cyan {
+  box-shadow: 
+    0 0 5px var(--electric-cyan),
+    0 0 10px var(--electric-cyan),
+    inset 0 0 5px oklch(0.8 0.2 195 / 0.1);
+}
+
+.glow-border-purple {
+  box-shadow: 
+    0 0 5px var(--acid-purple),
+    0 0 10px var(--acid-purple),
+    inset 0 0 5px oklch(0.6 0.25 290 / 0.1);
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    var(--neon-magenta),
+    var(--electric-cyan),
+    var(--acid-purple)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(oklch(0.3 0.04 280 / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.3 0.04 280 / 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar */
+.cyber-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.cyber-scrollbar::-webkit-scrollbar-track {
+  background: var(--deep-void);
+}
+
+.cyber-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--neon-magenta);
+  border-radius: 3px;
+}
+
+.cyber-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--electric-cyan);
+}
