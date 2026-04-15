@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useWallet } from '@/lib/wallet-context'
+import { WalletButton } from '@txnlab/use-wallet-ui-react'
 import { NeonButton } from '@/components/cyber-ui'
 
 // Animated stat ticker
@@ -121,19 +122,7 @@ const iconMap = {
 
 export default function LandingPage() {
   const router = useRouter()
-  const { connect, isConnecting, isConnected } = useWallet()
-
-  // Redirect to dashboard once connected
-  useEffect(() => {
-    if (isConnected) {
-      router.push('/dashboard')
-    }
-  }, [isConnected, router])
-
-  const handleConnectWallet = async () => {
-    await connect()
-    // redirect handled by the effect above
-  }
+  const { isConnected } = useWallet()
 
   return (
     <div className="relative min-h-screen flex flex-col bg-deep-void text-foreground overflow-hidden scanlines">
@@ -144,9 +133,9 @@ export default function LandingPage() {
         <span className="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan to-neon-magenta">
           ALGOCRED
         </span>
-        <NeonButton size="sm" variant="outline" onClick={handleConnectWallet} loading={isConnecting}>
-          Connect Wallet
-        </NeonButton>
+        <div className="wui-custom-trigger">
+          <WalletButton />
+        </div>
       </header>
 
       {/* ── Hero ── */}
@@ -173,15 +162,10 @@ export default function LandingPage() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-5">
-          <NeonButton
-            size="lg"
-            variant="primary"
-            onClick={handleConnectWallet}
-            loading={isConnecting}
-            className="min-w-48"
-          >
-            Connect Wallet
-          </NeonButton>
+          {/* Real wallet connect button from @txnlab/use-wallet-ui-react */}
+          <div className="wui-custom-trigger min-w-48">
+            <WalletButton />
+          </div>
           <Link href="/bounties">
             <NeonButton size="lg" variant="outline" className="min-w-48">
               Browse Bounties

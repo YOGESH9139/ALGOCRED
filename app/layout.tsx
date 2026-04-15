@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from 'sonner'
 import './globals.css'
 import { RootLayoutClient } from '@/components/root-layout-client'
 
@@ -27,6 +28,17 @@ export default function RootLayout({
         <RootLayoutClient>
           {children}
         </RootLayoutClient>
+        <Toaster
+          theme="dark"
+          toastOptions={{
+            style: {
+              background: 'oklch(0.15 0.02 270)',
+              border: '1px solid oklch(0.8 0.2 195 / 0.5)',
+              color: 'oklch(0.95 0.01 270)',
+              fontFamily: 'var(--font-mono)',
+            },
+          }}
+        />
         <Analytics />
       </body>
     </html>

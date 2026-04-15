@@ -375,3 +375,95 @@
 .cyber-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--electric-cyan);
 }
+
+/* ── @txnlab/use-wallet-ui-react WalletButton theme overrides ─────────────── */
+.wui-custom-trigger [class*="wui-"] button,
+.wui-custom-trigger button {
+  font-family: var(--font-mono), monospace !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  border: 2px solid var(--electric-cyan) !important;
+  background: transparent !important;
+  color: var(--electric-cyan) !important;
+  border-radius: 0 !important;
+  padding: 0.375rem 0.875rem !important;
+  box-shadow: 0 0 4px oklch(0.8 0.2 195 / 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+.wui-custom-trigger [class*="wui-"] button:hover,
+.wui-custom-trigger button:hover {
+  border-color: var(--neon-magenta) !important;
+  color: var(--neon-magenta) !important;
+  background: oklch(0.7 0.25 330 / 0.1) !important;
+  box-shadow: 0 0 15px oklch(0.7 0.25 330 / 0.3) !important;
+}
+
+/* ── @txnlab/use-wallet-ui-react Global Modal Theme Overrides ────────────── */
+
+:root [data-wallet-theme],
+.dark [data-wallet-theme],
+[data-wallet-theme][data-theme="dark"] {
+  /* Backgrounds */
+  --wui-color-bg: var(--deep-void) !important;
+  --wui-color-bg-secondary: var(--charcoal-steel) !important;
+  --wui-color-bg-tertiary: oklch(0.12 0.02 270) !important;
+  --wui-color-bg-hover: oklch(0.18 0.02 270) !important;
+  
+  /* Text */
+  --wui-color-text: var(--foreground) !important;
+  --wui-color-text-secondary: var(--muted-silver) !important;
+  
+  /* Primary accents (Electric Cyan / Neon Magenta) */
+  --wui-color-primary: oklch(0.7 0.25 330 / 0.15) !important;
+  --wui-color-primary-hover: oklch(0.7 0.25 330 / 0.3) !important;
+  --wui-color-primary-text: var(--electric-cyan) !important;
+  
+  /* Borders */
+  --wui-color-border: var(--electric-cyan) !important;
+  
+  /* Modal Overlay */
+  --wui-color-overlay: oklch(0.08 0.02 280 / 0.90) !important;
+}
+
+/* Hard override for the popup modal container */
+body [data-wallet-ui] [role="dialog"],
+div[data-wallet-ui] [role="dialog"] {
+  border: 2px solid var(--electric-cyan) !important;
+  box-shadow: 0 0 20px oklch(0.8 0.2 195 / 0.4), inset 0 0 5px oklch(0.8 0.2 195 / 0.2) !important;
+  border-radius: 0 !important;
+  background: var(--deep-void) !important;
+}
+
+/* Force dark neon styles on typography and links */
+body [data-wallet-ui] * {
+  font-family: var(--font-sans), sans-serif !important;
+}
+
+body [data-wallet-ui] h1, 
+body [data-wallet-ui] h2 {
+  font-family: var(--font-mono), monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  color: var(--electric-cyan) !important;
+  text-shadow: 0 0 5px var(--electric-cyan) !important;
+}
+
+body [data-wallet-ui] a {
+  color: var(--acid-purple) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+body [data-wallet-ui] a:hover {
+  text-shadow: 0 0 10px var(--neon-magenta) !important;
+  color: var(--neon-magenta) !important;
+}
+
+/* Wallet list hover glow */
+body [data-wallet-ui] [role="menuitem"]:hover,
+body [data-wallet-ui] button:hover {
+  border-color: var(--neon-magenta) !important;
+  box-shadow: 0 0 10px oklch(0.7 0.25 330 / 0.2) !important;
+}
+

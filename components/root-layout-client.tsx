@@ -3,10 +3,19 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { WalletProvider, useWallet } from '@/lib/wallet-context'
-import { ModalProvider, useModal } from '@/lib/modal-context'
+import { NetworkId, WalletId, WalletManager, WalletProvider } from '@txnlab/use-wallet-react'
+import { WalletUIProvider, WalletButton } from '@txnlab/use-wallet-ui-react'
+import '@txnlab/use-wallet-ui-react/dist/style.css'
+import { ModalProvider } from '@/lib/modal-context'
+import { useWallet } from '@/lib/wallet-context'
 import { NeonButton } from './cyber-ui'
 import { ModalSystem } from './modal-system'
+
+// ── Algorand WalletManager (Testnet, Pera + Defly + Lute) ──────────────────
+const walletManager = new WalletManager({
+  wallets: [WalletId.PERA, WalletId.DEFLY, WalletId.LUTE],
+  defaultNetwork: NetworkId.TESTNET,
+})
 
 // Cursor glow component for dashboard
 export function CursorGlow() {
@@ -79,7 +88,7 @@ function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
       `}>
         {/* Logo */}
         <div className="h-16 flex items-center px-6 border-b border-electric-cyan/20">
-          <Link href="/dashboard" className="text-2xl font-black tracking-wider">
+          <Link href="/" className="text-2xl font-black tracking-wider">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan to-neon-magenta">
               ALGOCRED
             </span>
@@ -129,8 +138,9 @@ function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
 
 function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
   const pathname = usePathname()
-  const { balance, connected, connect, disconnect, isConnecting } = useWallet()
+  const { walletAddress, connected, disconnect } = useWallet()
   const [showWalletMenu, setShowWalletMenu] = useState(false)
+  const router = useRouter()
 
   const getPageTitle = () => {
     const titles: Record<string, string> = {
@@ -142,6 +152,17 @@ function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
     }
     return titles[pathname] || 'ALGOCRED'
   }
+
+  const handleDisconnect = () => {
+    disconnect()
+    setShowWalletMenu(false)
+    router.push('/')
+  }
+
+  // Short display: first 6 + last 4 chars
+  const shortAddress = walletAddress
+    ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}`
+    : null
 
   return (
     <header className="fixed top-0 left-0 right-0 lg:left-64 h-16 bg-charcoal-steel/80 backdrop-blur-md border-b border-electric-cyan/30 z-30 flex items-center justify-between px-4 lg:px-6">
@@ -160,36 +181,39 @@ function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
 
       {/* Wallet section */}
       <div className="relative">
-        {connected ? (
-          <button 
-            onClick={() => setShowWalletMenu(!showWalletMenu)}
-            className="flex items-center gap-2 bg-deep-void/50 border border-electric-cyan/50 rounded-lg px-4 py-2 hover:border-electric-cyan transition-all group"
-          >
-            <span className="w-2 h-2 rounded-full bg-toxic-green animate-pulse" />
-            <span className="text-electric-cyan font-mono text-sm">ALGO...{Math.floor(Math.random() * 9000 + 1000)}</span>
-            <span className="text-muted-silver group-hover:text-electric-cyan transition-colors">▾</span>
-          </button>
-        ) : (
-          <NeonButton onClick={connect} loading={isConnecting} size="sm">
-            Connect Algorand Wallet
-          </NeonButton>
-        )}
+        {connected && shortAddress ? (
+          <>
+            <button 
+              onClick={() => setShowWalletMenu(!showWalletMenu)}
+              className="flex items-center gap-2 bg-deep-void/50 border border-electric-cyan/50 rounded-lg px-4 py-2 hover:border-electric-cyan transition-all group"
+            >
+              <span className="w-2 h-2 rounded-full bg-toxic-green animate-pulse" />
+              <span className="text-electric-cyan font-mono text-sm">{shortAddress}</span>
+              <span className="text-muted-silver group-hover:text-electric-cyan transition-colors">▾</span>
+            </button>
 
-        {/* Wallet dropdown */}
-        {showWalletMenu && connected && (
-          <div className="absolute right-0 top-full mt-2 w-64 glass rounded-lg border border-electric-cyan/30 overflow-hidden">
-            <div className="p-4 border-b border-electric-cyan/20">
-              <p className="text-xs text-muted-silver uppercase tracking-widest mb-1">Balance</p>
-              <p className="text-2xl font-black text-electric-cyan">{balance.toLocaleString()} ALGO</p>
-            </div>
-            <div className="p-2">
-              <button 
-                onClick={() => { disconnect(); setShowWalletMenu(false); }}
-                className="w-full text-left px-3 py-2 text-sm text-neon-magenta hover:bg-neon-magenta/10 rounded transition-colors"
-              >
-                Disconnect Wallet
-              </button>
-            </div>
+            {/* Wallet dropdown */}
+            {showWalletMenu && (
+              <div className="absolute right-0 top-full mt-2 w-64 glass rounded-lg border border-electric-cyan/30 overflow-hidden z-50">
+                <div className="p-4 border-b border-electric-cyan/20">
+                  <p className="text-xs text-muted-silver uppercase tracking-widest mb-1">Connected</p>
+                  <p className="text-sm font-mono text-electric-cyan break-all">{shortAddress}</p>
+                </div>
+                <div className="p-2">
+                  <button 
+                    onClick={handleDisconnect}
+                    className="w-full text-left px-3 py-2 text-sm text-neon-magenta hover:bg-neon-magenta/10 rounded transition-colors"
+                  >
+                    Disconnect Wallet
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          /* Use the txnlab WalletButton styled to match Algocred theme */
+          <div className="wui-custom-trigger">
+            <WalletButton />
           </div>
         )}
       </div>
@@ -229,12 +253,15 @@ interface RootLayoutClientProps {
 
 export function RootLayoutClient({ children }: RootLayoutClientProps) {
   return (
-    <WalletProvider>
-      <ModalProvider>
-        <AppLayout>
-          {children}
-        </AppLayout>
-      </ModalProvider>
+    <WalletProvider manager={walletManager}>
+      <WalletUIProvider theme="dark">
+        <ModalProvider>
+          <AppLayout>
+            {children}
+          </AppLayout>
+        </ModalProvider>
+      </WalletUIProvider>
     </WalletProvider>
   )
 }
+
