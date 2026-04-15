@@ -1,0 +1,66 @@
+{
+  "name": "AlgocredBountyManager",
+  "desc": "",
+  "methods": [
+    {
+      "name": "createApplication",
+      "desc": "Initializes the manager contract.",
+      "args": [
+        {
+          "name": "maintainerAddress",
+          "type": "address"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "createBounty",
+      "desc": "Creates a new bounty and stores it in box storage.",
+      "args": [
+        {
+          "name": "config",
+          "type": "(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64)"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "setWinner",
+      "desc": "Sets the winner for a bounty and updates the leaderboard.",
+      "args": [
+        {
+          "name": "developer",
+          "type": "address"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "payBounty",
+      "desc": "Batch payroll execution: pays out hunters who successfully submitted.\nThis is a simplified method demonstrating batch atomic transfers in TEAL.",
+      "args": [
+        {
+          "name": "bountyId",
+          "type": "uint64"
+        },
+        {
+          "name": "developer",
+          "type": "address"
+        },
+        {
+          "name": "payoutAmount",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    }
+  ]
+}
