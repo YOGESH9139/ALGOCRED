@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { toast } from 'sonner'
 import { NeonButton, NeonInput, GlowingCard, StepIndicator } from '@/components/cyber-ui'
 import { useWallet } from '@/lib/wallet-context'
 
@@ -54,7 +55,9 @@ export default function CreateBountyPage() {
 
   const handleSubmit = () => {
     if (validateStep(currentStep)) {
-      alert(`Bounty "${formData.title}" created successfully with ${formData.reward} ETH reward!`)
+      toast.success(`Bounty "${formData.title}" created!`, {
+        description: `Reward: ${formData.reward} ALGO · Deadline: ${formData.deadline}h`,
+      })
       // Reset form
       setFormData({
         title: '',
@@ -155,10 +158,10 @@ export default function CreateBountyPage() {
               <h2 className="text-2xl font-bold text-cyber-magenta uppercase tracking-widest">Pricing & Timeline</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <NeonInput
-                  label="Reward (ETH)"
-                  placeholder="0.5"
+                  label="Reward (ALGO)"
+                  placeholder="100"
                   type="number"
-                  step="0.01"
+                  step="1"
                   value={formData.reward}
                   onChange={(e) => handleInputChange('reward', e.target.value)}
                   error={errors.reward}
@@ -174,7 +177,7 @@ export default function CreateBountyPage() {
               </div>
               <div className="bg-cyber-dark/50 border-2 border-cyber-magenta/50 p-4 rounded">
                 <p className="text-cyber-light/60 text-sm">
-                  💰 You'll need to deposit the full reward amount + 2% platform fee. Total: {(parseFloat(formData.reward) * 1.02).toFixed(3)} ETH
+                  💰 You&apos;ll need to deposit the full reward amount + 2% platform fee. Total: {(parseFloat(formData.reward || '0') * 1.02).toFixed(2)} ALGO
                 </p>
               </div>
             </div>
@@ -194,7 +197,7 @@ export default function CreateBountyPage() {
                 </div>
                 <div className="border-l-2 border-cyber-cyan pl-4">
                   <p className="text-cyber-light/60 text-xs uppercase tracking-widest">Reward</p>
-                  <p className="text-cyber-magenta font-bold">{formData.reward} ETH</p>
+                  <p className="text-cyber-magenta font-bold">{formData.reward} ALGO</p>
                 </div>
                 <div className="border-l-2 border-cyber-cyan pl-4">
                   <p className="text-cyber-light/60 text-xs uppercase tracking-widest">Deadline</p>

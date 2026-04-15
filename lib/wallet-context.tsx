@@ -1,68 +1,72 @@
 'use client'
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
-import { mockUsers, mockTransactions, type User, type Transaction } from './mock-data'
+/**
+ * Wallet context compatibility bridge.
+ *
+ * All pages use `useWallet()` from this file and expect:
+ *   { isConnected, connected, isConnecting, connect, disconnect,
+ *     walletAddress, user, balance, setBalance, transactions }
+ *
+ * We derive those values from @txnlab/use-wallet-react so real
+ * Algorand wallet connections (Pera, Defly, Lute) work out of the box.
+ */
 
-interface WalletContextType {
+import { useWallet as useTxnWallet } from '@txnlab/use-wallet-react'
+import { mockTransactions, type Transaction } from './mock-data'
+
+// ── Re-export the User type so existing code keeps working ──────────────────
+export type { User, Transaction } from './mock-data'
+
+// ── Shape that every page expects ───────────────────────────────────────────
+export interface WalletContextShape {
   isConnected: boolean
+  connected: boolean
   isConnecting: boolean
-  user: User | null
+  walletAddress: string | null
+  user: { displayName: string; walletAddress: string } | null
   balance: number
-  setBalance: (balance: number) => void
+  setBalance: (b: number) => void
   transactions: Transaction[]
   connect: () => Promise<void>
   disconnect: () => void
-  connected: boolean
-  walletAddress: string | null
 }
 
-const WalletContext = createContext<WalletContextType | undefined>(undefined)
+// ── The bridge hook ─────────────────────────────────────────────────────────
+export function useWallet(): WalletContextShape {
+  const { activeAddress, activeWallet } = useTxnWallet()
 
-export function WalletProvider({ children }: { children: ReactNode }) {
-  const [isConnected, setIsConnected] = useState(false)
-  const [isConnecting, setIsConnecting] = useState(false)
-  const [user, setUser] = useState<User | null>(null)
-  const [balance, setBalance] = useState(7.5)
-  const [transactions] = useState<Transaction[]>(mockTransactions)
+  const isConnected = !!activeAddress
+  const connected = isConnected
 
-  const connect = useCallback(async () => {
-    setIsConnecting(true)
-    // Simulate wallet connection delay
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setUser(mockUsers[0])
-    setIsConnected(true)
-    setIsConnecting(false)
-  }, [])
+  const walletAddress = activeAddress ?? null
 
-  const disconnect = useCallback(() => {
-    setUser(null)
-    setIsConnected(false)
-  }, [])
+  // Derive a display name from the first+last 4 chars of the wallet address
+  const displayName = activeAddress
+    ? `${activeAddress.slice(0, 6)}...${activeAddress.slice(-4)}`
+    : null
 
-  return (
-    <WalletContext.Provider
-      value={{
-        isConnected,
-        isConnecting,
-        user,
-        balance,
-        setBalance,
-        transactions,
-        connect,
-        disconnect,
-        connected: isConnected,
-        walletAddress: user?.walletAddress || null
-      }}
-    >
-      {children}
-    </WalletContext.Provider>
-  )
-}
+  const user = displayName && walletAddress
+    ? { displayName, walletAddress }
+    : null
 
-export function useWallet() {
-  const context = useContext(WalletContext)
-  if (context === undefined) {
-    throw new Error('useWallet must be used within a WalletProvider')
+  // connect() is a no-op here — the WalletButton component handles opening the modal
+  // Pages that need to trigger connect should render <WalletButton /> instead
+  const connect = async () => {}
+
+  const disconnect = () => {
+    activeWallet?.disconnect()
   }
-  return context
+
+  return {
+    isConnected,
+    connected,
+    isConnecting: false,
+    walletAddress,
+    user,
+    balance: 0,
+    setBalance: () => {},
+    transactions: mockTransactions,
+    connect,
+    disconnect,
+  }
 }
