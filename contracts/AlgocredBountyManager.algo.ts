@@ -12,6 +12,7 @@ type BountyConfig = {
   submissionCount: uint64;
   requiredPosterRep: uint64;
   requiredHunterRep: uint64;
+  isClosed: uint64; // 0: Open, 1: Closed
 };
 
 type SubmissionRecord = {
@@ -20,6 +21,7 @@ type SubmissionRecord = {
   text: string;
   url: string;
   submittedAt: uint64;
+  status: uint64; // 0: Pending, 1: Approved, 2: Rejected, 3: Hold
 };
 
 export class AlgocredBountyManager extends Contract {
@@ -58,6 +60,7 @@ export class AlgocredBountyManager extends Contract {
       submissionCount: 0,
       requiredPosterRep: config.requiredPosterRep,
       requiredHunterRep: config.requiredHunterRep,
+      isClosed: 0,
     };
 
     assert(!this.allBountys(bountyId).exists);
@@ -79,12 +82,40 @@ export class AlgocredBountyManager extends Contract {
   }
 
   /**
+   * Updates the status of a submission.
+   */
+  updateSubmissionStatus(bountyId: uint64, hunter: Address, status: uint64): void {
+    const key: [uint64, Address] = [bountyId, hunter];
+    assert(this.submissions(key).exists);
+    const bounty = this.allBountys(bountyId).value;
+    assert(this.txn.sender === bounty.bountyCreator);
+
+    // Update only the status field to avoid entire struct re-assignment overhead/bugs
+    this.submissions(key).value.status = status;
+  }
+
+  /**
    * Batch payroll execution: pays out hunters who successfully submitted.
    * This is a simplified method demonstrating batch atomic transfers in TEAL.
    */
   payBounty(bountyId: uint64, developer: Address, payoutAmount: uint64): void {
-    assert(this.txn.sender === this.allBountys(bountyId).value.bountyCreator);
+    const bounty = this.allBountys(bountyId).value;
+    assert(this.txn.sender === bounty.bountyCreator);
     
+    // Update submission status to Approved (1)
+    const subKey: [uint64, Address] = [bountyId, developer];
+    if (this.submissions(subKey).exists) {
+        this.submissions(subKey).value.status = 1;
+    }
+
+    // Mark bounty as closed
+    bounty.isClosed = 1;
+    this.allBountys(bountyId).value = bounty;
+
+    // Trigger reputation update
+    this.setWinner(developer);
+
+    // Actual payout
     sendPayment({
       amount: payoutAmount,
       receiver: developer,
@@ -118,7 +149,8 @@ export class AlgocredBountyManager extends Contract {
       bountyId: bountyId,
       text: text,
       url: url,
-      submittedAt: globals.latestTimestamp
+      submittedAt: globals.latestTimestamp,
+      status: 0
     };
 
     // NOTE: submissionCount increment is intentionally not done on-chain.

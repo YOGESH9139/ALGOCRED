@@ -74,33 +74,30 @@ export default function BountyDetailPage() {
           reward: Number(decoded[6]) / 1e6,
           deadline: new Date(Number(decoded[7]) * 1000).toLocaleDateString(),
           applicants: Number(decoded[8]),
+          isClosed: Number(decoded[11]) === 1,
         })
 
         // ── Submissions from on-chain boxes ──
         const boxResponse = await algorand.client.algod.getApplicationBoxes(appId).do()
         const boxes = boxResponse.boxes || []
 
-        // The box key for a submission is: "submissions" (11 bytes) + bountyId (8 bytes) + hunterPublicKey (32 bytes)
-        const submissionPrefixStr = 'submissions'
-        const submissionPrefixBytes = new TextEncoder().encode(submissionPrefixStr)
         const bountyIdBytes = algosdk.encodeUint64(bountyIdNum)
 
-        // Build the prefix we filter on: "submissions" + bountyId
-        const filterPrefix = new Uint8Array(submissionPrefixBytes.length + bountyIdBytes.length)
-        filterPrefix.set(submissionPrefixBytes)
-        filterPrefix.set(bountyIdBytes, submissionPrefixBytes.length)
-
         const subs: any[] = []
-        const submissionAbiType = algosdk.ABIType.from('(address,uint64,string,string,uint64)')
+        // New ABI type includes the 'status' uint64 at the end
+        const submissionAbiType = algosdk.ABIType.from('(address,uint64,string,string,uint64,uint64)')
 
         for (const box of boxes) {
           const name = box.name // Uint8Array
-          if (name.length < filterPrefix.length) continue
+          if (name.length !== 40) continue // 8 (bountyId) + 32 (Address)
+
+          // Check if first 8 bytes match bountyId
           let match = true
-          for (let i = 0; i < filterPrefix.length; i++) {
-            if (name[i] !== filterPrefix[i]) { match = false; break }
+          for (let i = 0; i < 8; i++) {
+            if (name[i] !== bountyIdBytes[i]) { match = false; break }
           }
           if (!match) continue
+
           try {
             const content = await algorand.client.algod.getApplicationBoxByName(appId, name).do()
             const decodedSub = submissionAbiType.decode(content.value) as any[]
@@ -109,8 +106,9 @@ export default function BountyDetailPage() {
               submission_text: String(decodedSub[2]),
               submission_url: String(decodedSub[3]),
               submittedAt: Number(decodedSub[4]),
+              status: Number(decodedSub[5]), // 0: Pending, 1: Approved, 2: Rejected, 3: Hold
             })
-          } catch { /* skip malformed box */ }
+          } catch (e) { console.error('Error decoding sub box:', e) }
         }
         setSubmissions(subs)
 
@@ -124,7 +122,7 @@ export default function BountyDetailPage() {
   }, [params.id, connected])
 
   // ── Pay out winner ────────────────────────────────────────────────────────
-  const handlePayout = async (winner: string, amount: number) => {
+  const handlePayout = async (winnerAddress: string, amount: number) => {
     if (!activeAccount?.address || !transactionSigner) {
       alert('Please connect your wallet first.')
       return
@@ -135,23 +133,68 @@ export default function BountyDetailPage() {
       const appId = getAppId()
       const client = getClient(algorand, activeAccount.address, transactionSigner)
 
+      // Box key for the submission: bountyId (8) + hunterPK (32)
+      const bountyIdBytes = algosdk.encodeUint64(Number(params.id))
+      const hunterPKBytes = algosdk.decodeAddress(winnerAddress).publicKey
+      const subKey = new Uint8Array(40)
+      subKey.set(bountyIdBytes)
+      subKey.set(hunterPKBytes, 8)
+
       await client.send.payBounty({
         args: {
-          bountyId: Number(params.id),
-          developer: winner,
-          payoutAmount: Math.floor(amount * 1e6),
+          bountyId: BigInt(params.id as string),
+          developer: winnerAddress,
+          payoutAmount: BigInt(Math.floor(amount * 1e6)),
         },
-        boxReferences: [{ appId: BigInt(appId), name: algosdk.encodeUint64(Number(params.id)) }],
+        boxReferences: [
+          { appId: BigInt(appId), name: algosdk.encodeUint64(BigInt(params.id as string)) },
+          { appId: BigInt(appId), name: subKey },
+        ],
+        extraFee: (1000).microAlgos(), // Cover inner payment txn fee
       })
-      alert('Payout Successful!')
-    } catch (e) {
+      alert('Payout Successful! Bounty closed.')
+      window.location.reload()
+    } catch (e: any) {
       console.error(e)
-      alert('Payout failed. Check console.')
+      alert(`Payout failed: ${e?.message ?? 'Check console.'}`)
     } finally {
       setPayoutInProgress(false)
     }
   }
 
+  const handleUpdateStatus = async (hunterAddress: string, status: number) => {
+    if (!activeAccount?.address || !transactionSigner) return
+    try {
+      const algorand = getAlgorand()
+      const appId = getAppId()
+      const client = getClient(algorand, activeAccount.address, transactionSigner)
+
+      const bountyIdBytes = algosdk.encodeUint64(BigInt(params.id as string))
+      const hunterPKBytes = algosdk.decodeAddress(hunterAddress).publicKey
+      const subKey = new Uint8Array(40)
+      subKey.set(bountyIdBytes)
+      subKey.set(hunterPKBytes, 8)
+
+      await client.send.updateSubmissionStatus({
+        args: {
+          bountyId: BigInt(params.id as string),
+          hunter: hunterAddress,
+          status: BigInt(status),
+        },
+        boxReferences: [
+          { appId: BigInt(appId), name: subKey },
+          { appId: BigInt(appId), name: bountyIdBytes },
+        ],
+        extraFee: (1000).microAlgos(), // Cover box overhead if needed
+      })
+      alert('Status updated successfully!')
+      window.location.reload()
+    } catch (e: any) {
+      console.error('Update failed:', e)
+      alert(`Update failed: ${e?.message ?? 'Check console.'}`)
+    }
+  }
+  
   // ── Submit work on-chain ──────────────────────────────────────────────────
   const handleSubmit = async () => {
     if (!activeAccount?.address || !transactionSigner) {
@@ -248,7 +291,9 @@ export default function BountyDetailPage() {
             <GlowingCard glow="cyan">
               <div className="flex gap-2 mb-4">
                 <CyberBadge variant="cyan">{bounty.category}</CyberBadge>
-                <CyberBadge variant="success">Open</CyberBadge>
+                <CyberBadge variant={bounty.isClosed ? 'magenta' : 'success'}>
+                  {bounty.isClosed ? 'Closed' : 'Open'}
+                </CyberBadge>
               </div>
               <h1 className="text-3xl font-black text-foreground mb-6">{bounty.title}</h1>
 
@@ -287,9 +332,15 @@ export default function BountyDetailPage() {
                     <p className="text-muted-silver text-sm text-center py-8">No submissions yet.</p>
                   )}
                   {submissions.map((s, i) => (
-                    <div key={i} className="p-4 bg-deep-void/50 border border-electric-cyan/20 rounded flex justify-between items-start gap-4">
+                    <div key={i} className={`p-4 bg-deep-void/50 border rounded flex justify-between items-start gap-4 ${s.status === 1 ? 'border-toxic-green/50' : s.status === 2 ? 'border-neon-magenta/50' : 'border-electric-cyan/20'}`}>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-electric-cyan font-mono truncate mb-1">{s.hunter_address}</p>
+                        <div className="flex items-center gap-2 mb-1">
+                          <p className="text-xs text-electric-cyan font-mono truncate">{s.hunter_address}</p>
+                          {s.status === 0 && <CyberBadge variant="cyan">Pending</CyberBadge>}
+                          {s.status === 1 && <CyberBadge variant="success">Approved</CyberBadge>}
+                          {s.status === 2 && <CyberBadge variant="magenta">Rejected</CyberBadge>}
+                          {s.status === 3 && <CyberBadge variant="magenta">Hold</CyberBadge>}
+                        </div>
                         <p className="text-sm text-foreground whitespace-pre-wrap break-words">{s.submission_text}</p>
                         {s.submission_url && (
                           <a href={s.submission_url} target="_blank" rel="noopener noreferrer" className="text-xs text-acid-purple underline mt-1 block truncate">
@@ -297,9 +348,28 @@ export default function BountyDetailPage() {
                           </a>
                         )}
                       </div>
-                      <NeonButton size="sm" onClick={() => handlePayout(s.hunter_address, bounty.reward)} loading={payoutInProgress}>
-                        Payout
-                      </NeonButton>
+
+                      {!bounty.isClosed && (
+                        <div className="flex flex-col gap-2">
+                          <NeonButton size="sm" onClick={() => handlePayout(s.hunter_address, bounty.reward)} loading={payoutInProgress}>
+                            Approve & Payout
+                          </NeonButton>
+                          <div className="flex gap-1">
+                            <button
+                              onClick={() => handleUpdateStatus(s.hunter_address, 3)}
+                              className="px-2 py-1 text-[10px] font-bold uppercase border border-warning-amber/50 text-warning-amber hover:bg-warning-amber/10 transition-colors rounded"
+                            >
+                              Hold
+                            </button>
+                            <button
+                              onClick={() => handleUpdateStatus(s.hunter_address, 2)}
+                              className="px-2 py-1 text-[10px] font-bold uppercase border border-neon-magenta/50 text-neon-magenta hover:bg-neon-magenta/10 transition-colors rounded"
+                            >
+                              Reject
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -312,7 +382,7 @@ export default function BountyDetailPage() {
             <GlowingCard glow="magenta" className="text-center">
               <p className="text-xs text-muted-silver uppercase mb-1">Reward</p>
               <p className="text-4xl font-black text-foreground mb-6">{bounty.reward} ALGO</p>
-              {!isOwner && (
+              {!isOwner && !bounty.isClosed && (
                 <div className="space-y-3">
                   <NeonButton className="w-full" onClick={() => setShowSubmitModal(true)}>Submit Work</NeonButton>
                   <NeonButton variant="outline" className="w-full" onClick={() => {

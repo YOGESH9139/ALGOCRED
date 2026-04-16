@@ -7,6 +7,7 @@ import { useWallet } from '@/lib/wallet-context'
 import { WalletButton } from '@txnlab/use-wallet-ui-react'
 import { NeonButton } from '@/components/cyber-ui'
 
+
 // Animated stat ticker
 function StatTicker({
   value,
