@@ -51,48 +51,6 @@ export function ModalSystem() {
           </GlowingCard>
         )}
 
-        {/* Submission Review Modal */}
-        {activeModal === 'submission-review' && (
-          <GlowingCard glow="magenta">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-cyber-magenta uppercase tracking-widest">Submit Work</h2>
-              <button onClick={closeModal} className="text-cyber-light/60 hover:text-cyber-light">✕</button>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <p className="text-cyber-light/60 text-xs uppercase tracking-widest mb-2">Bounty</p>
-                <p className="text-cyber-light font-bold">{modalData.bounty?.title}</p>
-              </div>
-
-              <NeonInput
-                label="Work URL/Link"
-                placeholder="https://github.com/your-work"
-                value={submissionUrl}
-                onChange={(e) => setSubmissionUrl(e.target.value)}
-              />
-
-              <div>
-                <label className="block text-xs font-bold text-cyber-cyan mb-2 uppercase tracking-widest">Description</label>
-                <textarea
-                  placeholder="Describe your work and how it meets the requirements..."
-                  className="w-full bg-cyber-dark border-2 border-cyber-cyan text-cyber-light placeholder-cyber-cyan/50 px-3 py-2 focus:outline-none focus:shadow-neon-cyan transition-all h-24 resize-none"
-                />
-              </div>
-
-              <div className="bg-cyber-dark/50 p-3 rounded border border-cyber-magenta/30">
-                <p className="text-cyber-light/60 text-xs">
-                  ⚠️ Once submitted, work will be AI-verified. Approval typically takes 5-30 minutes.
-                </p>
-              </div>
-
-              <div className="flex gap-2">
-                <NeonButton className="flex-1">Submit Work</NeonButton>
-                <NeonButton variant="outline" onClick={closeModal}>Cancel</NeonButton>
-              </div>
-            </div>
-          </GlowingCard>
-        )}
 
         {/* Rating Modal */}
         {activeModal === 'rating' && (
@@ -105,7 +63,7 @@ export function ModalSystem() {
             <div className="space-y-4">
               <div>
                 <p className="text-cyber-light/60 text-xs uppercase tracking-widest mb-2">Worker</p>
-                <p className="text-cyber-light font-bold">{modalData.submission?.worker}</p>
+                <p className="text-cyber-light font-bold">{modalData.submission?.hunter?.displayName}</p>
               </div>
 
               <div>

@@ -1,2506 +1,1746 @@
 [
   {
     "teal": 1,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      0
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 2,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 3,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 15,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      37,
-      38
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 16,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      39
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 17,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      40,
-      41
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 18,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      42
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 19,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      43,
-      44
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 20,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      45
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 21,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      46,
-      47,
-      48,
-      49,
-      50,
-      51,
-      52,
-      53,
-      54,
-      55,
-      56,
-      57,
-      58,
-      59,
-      60,
-      61,
-      62,
-      63,
-      64,
-      65,
-      66,
-      67,
-      68,
-      69,
-      70,
-      71
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
     "teal": 25,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "errorMessage": "The requested action is not implemented in this contract. Are you using the correct OnComplete? Did you set your app ID?",
-    "pc": [
-      72
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25",
+    "errorMessage": "The requested action is not implemented in this contract. Are you using the correct OnComplete? Did you set your app ID?"
   },
   {
     "teal": 30,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      73,
-      74,
-      75
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 31,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      76
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 32,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      77
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 33,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      78
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 34,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      79
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 37,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "errorMessage": "argument 0 (maintainerAddress) for createApplication must be a address",
-    "pc": [
-      80
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
+    "errorMessage": "argument 0 (maintainerAddress) for createApplication must be a address"
   },
   {
     "teal": 40,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      81,
-      82,
-      83
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 41,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      84
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 42,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      85
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 48,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      86,
-      87,
-      88
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 52,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:29",
-    "pc": [
-      89
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:38"
   },
   {
     "teal": 53,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:29",
-    "pc": [
-      90
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:38"
   },
   {
     "teal": 54,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:29",
-    "pc": [
-      91
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:38"
   },
   {
     "teal": 58,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:30",
-    "pc": [
-      92,
-      93,
-      94,
-      95,
-      96,
-      97,
-      98,
-      99,
-      100,
-      101,
-      102,
-      103,
-      104,
-      105,
-      106,
-      107,
-      108,
-      109,
-      110
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:39"
   },
   {
     "teal": 59,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:30",
-    "pc": [
-      111,
-      112
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:39"
   },
   {
     "teal": 60,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:30",
-    "pc": [
-      113
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:39"
   },
   {
     "teal": 64,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:31",
-    "pc": [
-      114
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:40"
   },
   {
     "teal": 65,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:31",
-    "pc": [
-      115
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:40"
   },
   {
     "teal": 66,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:31",
-    "pc": [
-      116
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:40"
   },
   {
     "teal": 67,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:28",
-    "pc": [
-      117
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:37"
   },
   {
     "teal": 72,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      118,
-      119,
-      120
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 75,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      121,
-      122,
-      123
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 76,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      124
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 77,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      125
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 83,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      126,
-      127,
-      128
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 86,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      129
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 87,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      130
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 91,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:38",
-    "pc": [
-      131
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:47"
   },
   {
     "teal": 92,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:38",
-    "pc": [
-      132
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:47"
   },
   {
     "teal": 93,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:38",
-    "pc": [
-      133,
-      134
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:47"
   },
   {
     "teal": 109,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:40",
-    "pc": [
-      135
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:49"
   },
   {
     "teal": 110,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:40",
-    "pc": [
-      136
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:49"
   },
   {
     "teal": 111,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:40",
-    "pc": [
-      137,
-      138,
-      139,
-      140
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:49"
   },
   {
     "teal": 112,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:41",
-    "pc": [
-      141,
-      142
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:50"
   },
   {
     "teal": 113,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:41",
-    "pc": [
-      143
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:50"
   },
   {
     "teal": 114,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:41",
-    "pc": [
-      144,
-      145,
-      146
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:50"
   },
   {
     "teal": 115,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      147,
-      148
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 116,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      149,
-      150
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 117,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      151,
-      152
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 118,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      153,
-      154
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 119,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      155,
-      156
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 120,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      157,
-      158
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 121,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      159
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 122,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      160
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 123,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      161,
-      162
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 124,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      163
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 125,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      164
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 126,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      165
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 127,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      166
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 128,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      167
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 129,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      168
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 130,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      169
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 131,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      170,
-      171,
-      172
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 132,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      173
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 133,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      174
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 134,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      175
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 135,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      176,
-      177,
-      178
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 136,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      179
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 137,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      180
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 138,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:42",
-    "pc": [
-      181,
-      182,
-      183
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:51"
   },
   {
     "teal": 139,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      184,
-      185
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 140,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      186,
-      187
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 141,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      188,
-      189
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 142,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      190,
-      191
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 143,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      192,
-      193
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 144,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      194,
-      195
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 145,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      196
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 146,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      197
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 147,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      198,
-      199
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 148,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      200
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 149,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      201
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 150,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      202
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 151,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      203
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 152,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      204
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 153,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      205
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 154,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      206
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 155,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      207,
-      208,
-      209
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 156,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      210
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 157,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      211
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 158,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      212
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 159,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      213,
-      214,
-      215
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 160,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      216
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 161,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      217
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 162,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:43",
-    "pc": [
-      218,
-      219,
-      220
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:52"
   },
   {
     "teal": 163,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      221,
-      222
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 164,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      223,
-      224
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 165,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      225,
-      226
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 166,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      227,
-      228
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 167,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      229,
-      230
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 168,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      231,
-      232
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 169,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      233
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 170,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      234
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 171,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      235,
-      236
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 172,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      237
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 173,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      238
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 174,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      239
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 175,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      240
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 176,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      241
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 177,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      242
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 178,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      243
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 179,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      244,
-      245,
-      246
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 180,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      247
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 181,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      248
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 182,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      249
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 183,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      250,
-      251,
-      252
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 184,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      253
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 185,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      254
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 186,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:44",
-    "pc": [
-      255,
-      256,
-      257
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:53"
   },
   {
     "teal": 187,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:45",
-    "pc": [
-      258,
-      259
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:54"
   },
   {
     "teal": 188,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:45",
-    "pc": [
-      260,
-      261
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:54"
   },
   {
     "teal": 189,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:45",
-    "pc": [
-      262,
-      263
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:54"
   },
   {
     "teal": 190,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:45",
-    "pc": [
-      264,
-      265,
-      266
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:54"
   },
   {
     "teal": 191,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:45",
-    "pc": [
-      267,
-      268,
-      269
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:54"
   },
   {
     "teal": 192,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      270,
-      271
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 193,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      272,
-      273
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 194,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      274,
-      275
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 195,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      276,
-      277
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 196,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      278,
-      279
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 197,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      280,
-      281
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 198,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      282
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 199,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      283
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 200,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      284,
-      285
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 201,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      286
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 202,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      287
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 203,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      288
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 204,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      289
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 205,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      290
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 206,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      291
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 207,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      292
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 208,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      293,
-      294,
-      295
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 209,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      296
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 210,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      297
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 211,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      298
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 212,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      299,
-      300,
-      301
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 213,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      302
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 214,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      303
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 215,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:46",
-    "pc": [
-      304,
-      305,
-      306
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:55"
   },
   {
     "teal": 216,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:47",
-    "pc": [
-      307,
-      308
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:56"
   },
   {
     "teal": 217,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:47",
-    "pc": [
-      309,
-      310
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:56"
   },
   {
     "teal": 218,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:47",
-    "pc": [
-      311,
-      312
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:56"
   },
   {
     "teal": 219,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:47",
-    "pc": [
-      313,
-      314,
-      315
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:56"
   },
   {
     "teal": 220,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:47",
-    "pc": [
-      316
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:56"
   },
   {
     "teal": 221,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:47",
-    "pc": [
-      317
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:56"
   },
   {
     "teal": 222,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:47",
-    "pc": [
-      318,
-      319,
-      320
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:56"
   },
   {
     "teal": 223,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:48",
-    "pc": [
-      321,
-      322
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:57"
   },
   {
     "teal": 224,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:48",
-    "pc": [
-      323,
-      324
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:57"
   },
   {
     "teal": 225,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:48",
-    "pc": [
-      325,
-      326
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:57"
   },
   {
     "teal": 226,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:48",
-    "pc": [
-      327,
-      328,
-      329
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:57"
   },
   {
     "teal": 227,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:48",
-    "pc": [
-      330
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:57"
   },
   {
     "teal": 228,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:48",
-    "pc": [
-      331
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:57"
   },
   {
     "teal": 229,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:48",
-    "pc": [
-      332,
-      333,
-      334
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:57"
   },
   {
     "teal": 230,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:49",
-    "pc": [
-      335,
-      336,
-      337,
-      338,
-      339,
-      340,
-      341,
-      342,
-      343,
-      344
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:58"
   },
   {
     "teal": 231,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:49",
-    "pc": [
-      345,
-      346,
-      347
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:58"
   },
   {
     "teal": 232,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:50",
-    "pc": [
-      348,
-      349
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:59"
   },
   {
     "teal": 233,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:50",
-    "pc": [
-      350,
-      351
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:59"
   },
   {
     "teal": 234,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:50",
-    "pc": [
-      352,
-      353
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:59"
   },
   {
     "teal": 235,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:50",
-    "pc": [
-      354,
-      355,
-      356
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:59"
   },
   {
     "teal": 236,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:50",
-    "pc": [
-      357
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:59"
   },
   {
     "teal": 237,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:50",
-    "pc": [
-      358
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:59"
   },
   {
     "teal": 238,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:50",
-    "pc": [
-      359,
-      360,
-      361
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:59"
   },
   {
     "teal": 239,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:51",
-    "pc": [
-      362,
-      363
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:60"
   },
   {
     "teal": 240,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:51",
-    "pc": [
-      364,
-      365
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:60"
   },
   {
     "teal": 241,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:51",
-    "pc": [
-      366,
-      367
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:60"
   },
   {
     "teal": 242,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:51",
-    "pc": [
-      368,
-      369,
-      370
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:60"
   },
   {
     "teal": 243,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:51",
-    "pc": [
-      371
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:60"
   },
   {
     "teal": 244,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:51",
-    "pc": [
-      372
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:60"
   },
   {
     "teal": 245,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:51",
-    "pc": [
-      373,
-      374,
-      375
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:60"
   },
   {
     "teal": 246,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:40",
-    "pc": [
-      376
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:49"
   },
   {
     "teal": 247,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:40",
-    "pc": [
-      377
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:49"
   },
   {
     "teal": 248,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:40",
-    "pc": [
-      378,
-      379
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:49"
   },
   {
     "teal": 252,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:54",
-    "pc": [
-      380,
-      381
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:63"
   },
   {
     "teal": 253,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:54",
-    "pc": [
-      382
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:63"
   },
   {
     "teal": 254,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:54",
-    "pc": [
-      383
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:63"
   },
   {
     "teal": 255,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:54",
-    "pc": [
-      384
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:63"
   },
   {
     "teal": 256,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:54",
-    "pc": [
-      385
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:63"
   },
   {
     "teal": 257,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:54",
-    "pc": [
-      386
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:63"
   },
   {
     "teal": 258,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:54",
-    "pc": [
-      387
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:63"
   },
   {
     "teal": 262,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:55",
-    "pc": [
-      388,
-      389
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:64"
   },
   {
     "teal": 263,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:55",
-    "pc": [
-      390
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:64"
   },
   {
     "teal": 264,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:55",
-    "pc": [
-      391
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:64"
   },
   {
     "teal": 265,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:55",
-    "pc": [
-      392
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:64"
   },
   {
     "teal": 266,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:55",
-    "pc": [
-      393
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:64"
   },
   {
     "teal": 267,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:55",
-    "pc": [
-      394,
-      395
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:64"
   },
   {
     "teal": 268,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:55",
-    "pc": [
-      396
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:64"
   },
   {
     "teal": 272,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:57",
-    "pc": [
-      397
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:66"
   },
   {
     "teal": 273,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:57",
-    "pc": [
-      398,
-      399
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:66"
   },
   {
     "teal": 274,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:57",
-    "pc": [
-      400
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:66"
   },
   {
     "teal": 275,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:57",
-    "pc": [
-      401
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:66"
   },
   {
     "teal": 276,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:57",
-    "pc": [
-      402
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:66"
   },
   {
     "teal": 280,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:58",
-    "pc": [
-      403
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:67"
   },
   {
     "teal": 281,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:58",
-    "pc": [
-      404
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:67"
   },
   {
     "teal": 282,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:58",
-    "pc": [
-      405
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:67"
   },
   {
     "teal": 283,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:58",
-    "pc": [
-      406
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:67"
   },
   {
     "teal": 284,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:58",
-    "pc": [
-      407
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:67"
   },
   {
     "teal": 285,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:58",
-    "pc": [
-      408
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:67"
   },
   {
     "teal": 286,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:37",
-    "pc": [
-      409
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:46"
   },
   {
     "teal": 291,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      410,
-      411,
-      412
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 292,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      413
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 293,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      414
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 294,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      415
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 295,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      416
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 298,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "errorMessage": "argument 0 (developer) for setWinner must be a address",
-    "pc": [
-      417
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73",
+    "errorMessage": "argument 0 (developer) for setWinner must be a address"
   },
   {
     "teal": 301,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      418,
-      419,
-      420
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 302,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      421
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 303,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      422
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 309,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      423,
-      424,
-      425
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 314,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:65",
-    "pc": [
-      426,
-      427
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:74"
   },
   {
     "teal": 315,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:65",
-    "pc": [
-      428
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:74"
   },
   {
     "teal": 316,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:65",
-    "pc": [
-      429
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:74"
   },
   {
     "teal": 317,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:65",
-    "pc": [
-      430
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:74"
   },
   {
     "teal": 318,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:65",
-    "pc": [
-      431
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:74"
   },
   {
     "teal": 319,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:65",
-    "pc": [
-      432,
-      433,
-      434
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:74"
   },
   {
     "teal": 324,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:66",
-    "pc": [
-      435,
-      436
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:75"
   },
   {
     "teal": 325,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:66",
-    "pc": [
-      437,
-      438,
-      439,
-      440,
-      441,
-      442,
-      443,
-      444,
-      445,
-      446
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:75"
   },
   {
     "teal": 326,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:66",
-    "pc": [
-      447
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:75"
   },
   {
     "teal": 327,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:65",
-    "pc": [
-      448,
-      449,
-      450
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:74"
   },
   {
     "teal": 332,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      451,
-      452
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 333,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      453,
-      454
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 334,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      455
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 337,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "errorMessage": "box value does not exist: this.leaderboard(developer).value",
-    "pc": [
-      456
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
+    "errorMessage": "box value does not exist: this.leaderboard(developer).value"
   },
   {
     "teal": 338,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      457
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 339,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      458
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 340,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      459
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 341,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      460
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 342,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:68",
-    "pc": [
-      461
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:77"
   },
   {
     "teal": 345,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:64",
-    "pc": [
-      462
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:73"
   },
   {
     "teal": 350,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      463,
-      464,
-      465
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 351,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      466
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 354,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      467,
-      468,
-      469
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 355,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      470
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 356,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      471
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 357,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      472
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 358,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      473
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 361,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "errorMessage": "argument 1 (developer) for payBounty must be a address",
-    "pc": [
-      474
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85",
+    "errorMessage": "argument 1 (developer) for payBounty must be a address"
   },
   {
     "teal": 364,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      475,
-      476,
-      477
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 365,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      478
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 368,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      479,
-      480,
-      481
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 369,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      482
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 370,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      483
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 377,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      484,
-      485,
-      486
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 381,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      487,
-      488
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 382,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      489,
-      490
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 383,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      491
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 384,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      492
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 387,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "errorMessage": "box value does not exist: this.allBountys(bountyId).value",
-    "pc": [
-      493
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86",
+    "errorMessage": "box value does not exist: this.allBountys(bountyId).value"
   },
   {
     "teal": 388,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      494,
-      495
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 389,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      496,
-      497
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 390,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      498,
-      499,
-      500
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 391,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      501
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 392,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:77",
-    "pc": [
-      502
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:86"
   },
   {
     "teal": 400,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:79",
-    "pc": [
-      503
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:88"
   },
   {
     "teal": 401,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:79",
-    "pc": [
-      504
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:88"
   },
   {
     "teal": 402,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:79",
-    "pc": [
-      505,
-      506
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:88"
   },
   {
     "teal": 406,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:80",
-    "pc": [
-      507,
-      508
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:89"
   },
   {
     "teal": 407,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:80",
-    "pc": [
-      509,
-      510
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:89"
   },
   {
     "teal": 411,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:81",
-    "pc": [
-      511,
-      512
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:90"
   },
   {
     "teal": 412,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:81",
-    "pc": [
-      513,
-      514
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:90"
   },
   {
     "teal": 416,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:82",
-    "pc": [
-      515,
-      516
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:91"
   },
   {
     "teal": 417,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:82",
-    "pc": [
-      517,
-      518
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:91"
   },
   {
     "teal": 420,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:79",
-    "pc": [
-      519
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:88"
   },
   {
     "teal": 421,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:79",
-    "pc": [
-      520,
-      521
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:88"
   },
   {
     "teal": 424,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:79",
-    "pc": [
-      522
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:88"
   },
   {
     "teal": 425,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:76",
-    "pc": [
-      523
-    ]
-  },
-  {
-    "teal": 428,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      524,
-      525,
-      526,
-      527,
-      528,
-      529
-    ]
-  },
-  {
-    "teal": 429,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      530,
-      531,
-      532
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:85"
   },
   {
     "teal": 430,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      533,
-      534,
-      535,
-      536
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
-    "teal": 433,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "errorMessage": "this contract does not implement the given ABI method for create NoOp",
-    "pc": [
-      537
-    ]
+    "teal": 431,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
-    "teal": 436,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      538,
-      539,
-      540,
-      541,
-      542,
-      543
-    ]
+    "teal": 434,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
-    "teal": 437,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      544,
-      545,
-      546,
-      547,
-      548,
-      549
-    ]
+    "teal": 435,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 438,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      550,
-      551,
-      552,
-      553,
-      554,
-      555
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 439,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      556,
-      557,
-      558
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
-    "teal": 440,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      559,
-      560,
-      561,
-      562,
-      563,
-      564,
-      565,
-      566
-    ]
+    "teal": 442,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 443,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "errorMessage": "this contract does not implement the given ABI method for call NoOp",
-    "pc": [
-      567
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
+  },
+  {
+    "teal": 444,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
+  },
+  {
+    "teal": 445,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 446,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      568,
-      569,
-      570
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 447,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      571,
-      572
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 448,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      573,
-      574
-    ]
-  },
-  {
-    "teal": 449,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      575
-    ]
-  },
-  {
-    "teal": 450,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      576,
-      577
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 451,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      578,
-      579
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99",
+    "errorMessage": "argument 3 (mbrPayment) for submitWork must be a pay transaction"
   },
   {
-    "teal": 452,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      580
-    ]
+    "teal": 454,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 455,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      581,
-      582,
-      583
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 456,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      584,
-      585
-    ]
-  },
-  {
-    "teal": 457,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      586,
-      587
-    ]
-  },
-  {
-    "teal": 458,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      588
-    ]
-  },
-  {
-    "teal": 459,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      589,
-      590
-    ]
-  },
-  {
-    "teal": 460,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      591,
-      592
-    ]
-  },
-  {
-    "teal": 461,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      593
-    ]
-  },
-  {
-    "teal": 462,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      594
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 463,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      595,
-      596
-    ]
-  },
-  {
-    "teal": 464,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      597
-    ]
-  },
-  {
-    "teal": 465,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      598
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 466,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      599
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 467,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      600,
-      601,
-      602
-    ]
-  },
-  {
-    "teal": 468,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      603,
-      604
-    ]
-  },
-  {
-    "teal": 469,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      605,
-      606
-    ]
-  },
-  {
-    "teal": 470,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      607
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
     "teal": 471,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      608
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:100"
   },
   {
     "teal": 472,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      609,
-      610
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:100"
   },
   {
     "teal": 473,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      611,
-      612
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:100"
   },
   {
     "teal": 474,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      613,
-      614
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:100"
   },
   {
     "teal": 475,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      615,
-      616
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:100"
   },
   {
     "teal": 476,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:17",
-    "pc": [
-      617
-    ]
+    "source": "contracts\\AlgocredBountyManager.algo.ts:100"
+  },
+  {
+    "teal": 480,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:101"
+  },
+  {
+    "teal": 481,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:101"
+  },
+  {
+    "teal": 485,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:102"
+  },
+  {
+    "teal": 486,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:102"
+  },
+  {
+    "teal": 487,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:102"
+  },
+  {
+    "teal": 488,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:102"
+  },
+  {
+    "teal": 489,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:102"
+  },
+  {
+    "teal": 493,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:105"
+  },
+  {
+    "teal": 494,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:105"
+  },
+  {
+    "teal": 495,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:105"
+  },
+  {
+    "teal": 496,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:105"
+  },
+  {
+    "teal": 497,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:105"
+  },
+  {
+    "teal": 498,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:105"
+  },
+  {
+    "teal": 502,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:111"
+  },
+  {
+    "teal": 503,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:111"
+  },
+  {
+    "teal": 504,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:111"
+  },
+  {
+    "teal": 505,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:111"
+  },
+  {
+    "teal": 506,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:111"
+  },
+  {
+    "teal": 510,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:112"
+  },
+  {
+    "teal": 511,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:112"
+  },
+  {
+    "teal": 512,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:112"
+  },
+  {
+    "teal": 513,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:112"
+  },
+  {
+    "teal": 514,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:112"
+  },
+  {
+    "teal": 524,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 525,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 526,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 527,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 528,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 529,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 530,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 531,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:117"
+  },
+  {
+    "teal": 532,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:117"
+  },
+  {
+    "teal": 533,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:118"
+  },
+  {
+    "teal": 534,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:118"
+  },
+  {
+    "teal": 535,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:118"
+  },
+  {
+    "teal": 536,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 537,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 538,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 539,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 540,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 541,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 542,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 543,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:119"
+  },
+  {
+    "teal": 544,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 545,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 546,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 547,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 548,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 549,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 550,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 551,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:120"
+  },
+  {
+    "teal": 552,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:121"
+  },
+  {
+    "teal": 553,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:121"
+  },
+  {
+    "teal": 554,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:121"
+  },
+  {
+    "teal": 555,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 556,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 557,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:116"
+  },
+  {
+    "teal": 561,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 562,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 563,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 567,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 568,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 571,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125",
+    "errorMessage": "box value does not exist: this.allBountys(bountyId).value"
+  },
+  {
+    "teal": 572,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 573,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 574,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 575,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 576,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 579,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125",
+    "errorMessage": "box value does not exist: this.allBountys(bountyId).value"
+  },
+  {
+    "teal": 580,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 581,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 582,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 583,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 584,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 585,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 586,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 587,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
+  },
+  {
+    "teal": 588,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 589,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 590,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 591,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 592,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 593,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 597,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
+  },
+  {
+    "teal": 598,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
+  },
+  {
+    "teal": 599,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
+  },
+  {
+    "teal": 600,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
+  },
+  {
+    "teal": 601,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
+  },
+  {
+    "teal": 602,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 603,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
+  },
+  {
+    "teal": 606,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:125",
+    "errorMessage": "box value does not exist: this.allBountys(bountyId).value"
+  },
+  {
+    "teal": 607,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
+  },
+  {
+    "teal": 608,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:99"
+  },
+  {
+    "teal": 611,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 612,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 613,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 616,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25",
+    "errorMessage": "this contract does not implement the given ABI method for create NoOp"
+  },
+  {
+    "teal": 619,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 620,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 621,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 622,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 623,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 624,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 627,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25",
+    "errorMessage": "this contract does not implement the given ABI method for call NoOp"
+  },
+  {
+    "teal": 630,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 631,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 632,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 633,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 634,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 635,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 636,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 639,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 640,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 641,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 642,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 643,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 644,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 645,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 646,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 647,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 648,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 649,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 650,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 651,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 652,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 653,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 654,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 655,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 656,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 657,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 658,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 659,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
+  },
+  {
+    "teal": 660,
+    "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   }
 ]

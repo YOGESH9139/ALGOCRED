@@ -1,5 +1,5 @@
 import { AlgorandClient } from '@algorandfoundation/algokit-utils';
-import { AlgocredBountyManagerClient } from '../contracts/AlgocredBountyManagerClient';
+import { AlgocredBountyManagerClient, AlgocredBountyManagerFactory } from '../contracts/AlgocredBountyManagerClient';
 import algosdk from 'algosdk';
 
 async function main() {
@@ -17,44 +17,37 @@ async function main() {
     },
   });
 
-  // We need an account with funds on TestNet. 
-  // Let's use the local dispenser if possible, but testnet requires real testnet ALGO.
-  // I will generate a new account and print its mnemonic so the user can fund it OR I can fund it via the dispenser API!
-  const deployer = algorand.account.random();
-  console.log("Generated Deployer Address:", deployer.addr);
-  console.log("Mnemonic:", algosdk.secretKeyToMnemonic(deployer.sk));
+  const deployer = process.env.DEPLOYER_MNEMONIC ? 
+      algosdk.mnemonicToSecretKey(process.env.DEPLOYER_MNEMONIC) : 
+      algosdk.generateAccount();
 
-  try {
-    console.log("Funding deployer account from dispnser...");
-    await algorand.account.dispenserFromEnvironment();
-    // Dispenser might not work if env vars aren't set. We will try passing the address to Algokit testnet dispenser programmatically.
-    await algorand.send.payment({
-      sender: await algorand.account.dispenser(),
-      receiver: deployer.addr,
-      amount: algosdk.algos(10),
-    });
-  } catch (e) {
-    console.log("Failed to fund automatically. You might need to manually fund this address via https://bank.testnet.algorand.network/");
-    console.log(e.message);
-    console.log(`Please fund: ${deployer.addr} and run this again.`);
-    // process.exit(1);
+  console.log("Deployer Address:", deployer.addr);
+  if (!process.env.DEPLOYER_MNEMONIC) {
+      console.log("Mnemonic:", algosdk.secretKeyToMnemonic(deployer.sk));
+      console.log("--------------------------------------------------------------------------------");
+      console.log(`Please fund: ${deployer.addr} via https://bank.testnet.algorand.network/`);
+      console.log(`Then re-run this script with:`);
+      console.log(`set DEPLOYER_MNEMONIC="${algosdk.secretKeyToMnemonic(deployer.sk)}"`);
+      console.log(`npx tsx scripts/deploy.ts`);
+      console.log("--------------------------------------------------------------------------------");
+      process.exit(0);
   }
-
-  // Waiting for human or if the dispenser worked:
   console.log("Attempting to deploy...");
   
-  const client = new AlgocredBountyManagerClient({
+  const factory = new AlgocredBountyManagerFactory({
     algorand,
-    defaultSender: deployer.addr,
-    defaultSigner: algorand.account.getSigner(deployer.addr)
+    defaultSender: deployer.addr.toString(),
+    defaultSigner: algosdk.makeBasicAccountTransactionSigner(deployer)
   });
 
   try {
-    const { appClient } = await client.create.createApplication({ maintainerAddress: deployer.addr });
-    const appId = await appClient.getAppId();
+    const { result, appClient } = await factory.send.create.createApplication({
+      args: { maintainerAddress: deployer.addr.toString() }
+    });
+    const appId = appClient.appId;
     console.log("SUCCESS! Deployed AlgocredBountyManager to TestNet.");
     console.log("App ID:", appId.toString());
-    console.log("App Address:", (await appClient.getAppAddress()).toString());
+    console.log("App Address:", (await appClient.appAddress).toString());
   } catch (err) {
     console.error("Deployment failed:", err.message);
   }

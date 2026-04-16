@@ -47,19 +47,19 @@ switch *call_NoOp *NOT_IMPLEMENTED *NOT_IMPLEMENTED *NOT_IMPLEMENTED *NOT_IMPLEM
 createApplication:
 	proto 1 0
 
-	// contracts\AlgocredBountyManager.algo.ts:29
+	// contracts\AlgocredBountyManager.algo.ts:38
 	// this.totalBounties.value = 0
 	bytec 1 //  "totalBounties"
 	intc 3 // 0
 	app_global_put
 
-	// contracts\AlgocredBountyManager.algo.ts:30
+	// contracts\AlgocredBountyManager.algo.ts:39
 	// this.maintainerAddress.value = maintainerAddress
 	pushbytes 0x6d61696e7461696e657241646472657373 // "maintainerAddress"
 	frame_dig -1 // maintainerAddress: Address
 	app_global_put
 
-	// contracts\AlgocredBountyManager.algo.ts:31
+	// contracts\AlgocredBountyManager.algo.ts:40
 	// this.lastBountyID.value = 1
 	bytec 2 //  "lastBountyID"
 	intc 0 // 1
@@ -86,13 +86,13 @@ createBounty:
 	bytec 0 // 0x
 	dup
 
-	// contracts\AlgocredBountyManager.algo.ts:38
+	// contracts\AlgocredBountyManager.algo.ts:47
 	// bountyId = this.lastBountyID.value
 	bytec 2 //  "lastBountyID"
 	app_global_get
 	frame_bury 0 // bountyId: uint64
 
-	// contracts\AlgocredBountyManager.algo.ts:40
+	// contracts\AlgocredBountyManager.algo.ts:49
 	// newBounty: BountyConfig = {
 	//       bountyId: bountyId,
 	//       bountyName: config.bountyName,
@@ -247,7 +247,7 @@ createBounty:
 	concat // concat head and tail
 	frame_bury 1 // newBounty: BountyConfig
 
-	// contracts\AlgocredBountyManager.algo.ts:54
+	// contracts\AlgocredBountyManager.algo.ts:63
 	// assert(!this.allBountys(bountyId).exists)
 	frame_dig 0 // bountyId: uint64
 	itob
@@ -257,7 +257,7 @@ createBounty:
 	!
 	assert
 
-	// contracts\AlgocredBountyManager.algo.ts:55
+	// contracts\AlgocredBountyManager.algo.ts:64
 	// this.allBountys(bountyId).value = newBounty
 	frame_dig 0 // bountyId: uint64
 	itob
@@ -267,7 +267,7 @@ createBounty:
 	frame_dig 1 // newBounty: BountyConfig
 	box_put
 
-	// contracts\AlgocredBountyManager.algo.ts:57
+	// contracts\AlgocredBountyManager.algo.ts:66
 	// this.lastBountyID.value = bountyId + 1
 	bytec 2 //  "lastBountyID"
 	frame_dig 0 // bountyId: uint64
@@ -275,7 +275,7 @@ createBounty:
 	+
 	app_global_put
 
-	// contracts\AlgocredBountyManager.algo.ts:58
+	// contracts\AlgocredBountyManager.algo.ts:67
 	// this.totalBounties.value = this.totalBounties.value + 1
 	bytec 1 //  "totalBounties"
 	dup
@@ -309,7 +309,7 @@ setWinner:
 	proto 1 0
 
 	// *if0_condition
-	// contracts\AlgocredBountyManager.algo.ts:65
+	// contracts\AlgocredBountyManager.algo.ts:74
 	// !this.leaderboard(developer).exists
 	frame_dig -1 // developer: Address
 	box_len
@@ -319,7 +319,7 @@ setWinner:
 	bz *if0_else
 
 	// *if0_consequent
-	// contracts\AlgocredBountyManager.algo.ts:66
+	// contracts\AlgocredBountyManager.algo.ts:75
 	// this.leaderboard(developer).value = 1
 	frame_dig -1 // developer: Address
 	pushbytes 0x0000000000000001
@@ -327,7 +327,7 @@ setWinner:
 	b *if0_end
 
 *if0_else:
-	// contracts\AlgocredBountyManager.algo.ts:68
+	// contracts\AlgocredBountyManager.algo.ts:77
 	// this.leaderboard(developer).value = this.leaderboard(developer).value + 1
 	frame_dig -1 // developer: Address
 	frame_dig -1 // developer: Address
@@ -376,7 +376,7 @@ setWinner:
 payBounty:
 	proto 3 0
 
-	// contracts\AlgocredBountyManager.algo.ts:77
+	// contracts\AlgocredBountyManager.algo.ts:86
 	// assert(this.txn.sender === this.allBountys(bountyId).value.bountyCreator)
 	txn Sender
 	frame_dig -1 // bountyId: uint64
@@ -391,7 +391,7 @@ payBounty:
 	==
 	assert
 
-	// contracts\AlgocredBountyManager.algo.ts:79
+	// contracts\AlgocredBountyManager.algo.ts:88
 	// sendPayment({
 	//       amount: payoutAmount,
 	//       receiver: developer,
@@ -401,17 +401,17 @@ payBounty:
 	intc 0 //  pay
 	itxn_field TypeEnum
 
-	// contracts\AlgocredBountyManager.algo.ts:80
+	// contracts\AlgocredBountyManager.algo.ts:89
 	// amount: payoutAmount
 	frame_dig -3 // payoutAmount: uint64
 	itxn_field Amount
 
-	// contracts\AlgocredBountyManager.algo.ts:81
+	// contracts\AlgocredBountyManager.algo.ts:90
 	// receiver: developer
 	frame_dig -2 // developer: Address
 	itxn_field Receiver
 
-	// contracts\AlgocredBountyManager.algo.ts:82
+	// contracts\AlgocredBountyManager.algo.ts:91
 	// sender: this.app.address
 	global CurrentApplicationAddress
 	itxn_field Sender
@@ -422,6 +422,189 @@ payBounty:
 
 	// Submit inner transaction
 	itxn_submit
+	retsub
+
+// submitWork(pay,uint64,string,string)void
+*abi_route_submitWork:
+	// url: string
+	txna ApplicationArgs 3
+	extract 2 0
+
+	// text: string
+	txna ApplicationArgs 2
+	extract 2 0
+
+	// bountyId: uint64
+	txna ApplicationArgs 1
+	btoi
+
+	// mbrPayment: pay
+	txn GroupIndex
+	intc 0 // 1
+	-
+	dup
+	gtxns TypeEnum
+	intc 0 //  pay
+	==
+
+	// argument 3 (mbrPayment) for submitWork must be a pay transaction
+	assert
+
+	// execute submitWork(pay,uint64,string,string)void
+	callsub submitWork
+	intc 0 // 1
+	return
+
+// submitWork(mbrPayment: PayTxn, bountyId: uint64, text: string, url: string): void
+//
+// Hunter submits work to a bounty natively on-chain.
+// Requires a payment from the hunter to cover the Box Storage MBR.
+submitWork:
+	proto 4 0
+
+	// Push empty bytes after the frame pointer to reserve space for local variables
+	bytec 0 // 0x
+	dupn 2
+
+	// contracts\AlgocredBountyManager.algo.ts:100
+	// assert(this.allBountys(bountyId).exists)
+	frame_dig -2 // bountyId: uint64
+	itob
+	box_len
+	swap
+	pop
+	assert
+
+	// contracts\AlgocredBountyManager.algo.ts:101
+	// hunter = this.txn.sender
+	txn Sender
+	frame_bury 0 // hunter: address
+
+	// contracts\AlgocredBountyManager.algo.ts:102
+	// key: [uint64, Address] = [bountyId, hunter]
+	frame_dig -2 // bountyId: uint64
+	itob
+	frame_dig 0 // hunter: address
+	concat
+	frame_bury 1 // key: [uint64, Address]
+
+	// contracts\AlgocredBountyManager.algo.ts:105
+	// assert(!this.submissions(key).exists)
+	frame_dig 1 // key: [uint64, Address]
+	box_len
+	swap
+	pop
+	!
+	assert
+
+	// contracts\AlgocredBountyManager.algo.ts:111
+	// assert(mbrPayment.receiver === this.app.address)
+	frame_dig -1 // mbrPayment: PayTxn
+	gtxns Receiver
+	global CurrentApplicationAddress
+	==
+	assert
+
+	// contracts\AlgocredBountyManager.algo.ts:112
+	// assert(mbrPayment.sender === hunter)
+	frame_dig -1 // mbrPayment: PayTxn
+	gtxns Sender
+	frame_dig 0 // hunter: address
+	==
+	assert
+
+	// contracts\AlgocredBountyManager.algo.ts:116
+	// this.submissions(key).value = {
+	//       hunter: hunter,
+	//       bountyId: bountyId,
+	//       text: text,
+	//       url: url,
+	//       submittedAt: globals.latestTimestamp
+	//     }
+	frame_dig 1 // key: [uint64, Address]
+	dup
+	box_del
+	pop
+	bytec 0 //  initial head
+	bytec 0 //  initial tail
+	pushbytes 0x0034 // initial head offset
+	frame_dig 0 // hunter: address
+	callsub *process_static_tuple_element
+	frame_dig -2 // bountyId: uint64
+	itob
+	callsub *process_static_tuple_element
+	frame_dig -3 // text: string
+	dup
+	len
+	itob
+	extract 6 2
+	swap
+	concat
+	callsub *process_dynamic_tuple_element
+	frame_dig -4 // url: string
+	dup
+	len
+	itob
+	extract 6 2
+	swap
+	concat
+	callsub *process_dynamic_tuple_element
+	global LatestTimestamp
+	itob
+	callsub *process_static_tuple_element
+	pop // pop head offset
+	concat // concat head and tail
+	box_put
+
+	// contracts\AlgocredBountyManager.algo.ts:125
+	// bounty = this.allBountys(bountyId).value
+	frame_dig -2 // bountyId: uint64
+	itob
+	frame_bury 2 // storage key//bounty
+
+	// contracts\AlgocredBountyManager.algo.ts:126
+	// bounty.submissionCount = bounty.submissionCount + 1
+	frame_dig 2 // storage key//bounty
+	box_get
+
+	// box value does not exist: this.allBountys(bountyId).value
+	assert
+	store 255 // full array
+	load 255 // full array
+	pushint 64
+	frame_dig 2 // storage key//bounty
+	box_get
+
+	// box value does not exist: this.allBountys(bountyId).value
+	assert
+	store 255 // full array
+	load 255 // full array
+	extract 64 8
+	btoi
+	intc 0 // 1
+	+
+	itob
+	replace3
+	frame_dig 2 // storage key//bounty
+	dup
+	box_del
+	pop
+	swap
+	box_put
+
+	// contracts\AlgocredBountyManager.algo.ts:127
+	// this.allBountys(bountyId).value = bounty
+	frame_dig -2 // bountyId: uint64
+	itob
+	dup
+	box_del
+	pop
+	frame_dig 2 // storage key//bounty
+	box_get
+
+	// box value does not exist: this.allBountys(bountyId).value
+	assert
+	box_put
 	retsub
 
 *create_NoOp:
@@ -436,8 +619,9 @@ payBounty:
 	pushbytes 0x1c0f8d01 // method "createBounty((uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64))void"
 	pushbytes 0x1991f3c4 // method "setWinner(address)void"
 	pushbytes 0x2cd28a3e // method "payBounty(uint64,address,uint64)void"
+	pushbytes 0xabcc1a92 // method "submitWork(pay,uint64,string,string)void"
 	txna ApplicationArgs 0
-	match *abi_route_createBounty *abi_route_setWinner *abi_route_payBounty
+	match *abi_route_createBounty *abi_route_setWinner *abi_route_payBounty *abi_route_submitWork
 
 	// this contract does not implement the given ABI method for call NoOp
 	err
