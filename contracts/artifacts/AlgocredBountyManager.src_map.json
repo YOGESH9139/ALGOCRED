@@ -1435,312 +1435,169 @@
     "source": "contracts\\AlgocredBountyManager.algo.ts:116"
   },
   {
-    "teal": 561,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 562,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 563,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 567,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 568,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 571,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125",
-    "errorMessage": "box value does not exist: this.allBountys(bountyId).value"
-  },
-  {
-    "teal": 572,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 573,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 574,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 575,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 576,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 579,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125",
-    "errorMessage": "box value does not exist: this.allBountys(bountyId).value"
-  },
-  {
-    "teal": 580,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 581,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 582,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 583,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 584,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 585,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 586,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 587,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:126"
-  },
-  {
-    "teal": 588,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 589,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 590,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 591,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 592,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 593,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 597,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
-  },
-  {
-    "teal": 598,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
-  },
-  {
-    "teal": 599,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
-  },
-  {
-    "teal": 600,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
-  },
-  {
-    "teal": 601,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
-  },
-  {
-    "teal": 602,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 603,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125"
-  },
-  {
-    "teal": 606,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:125",
-    "errorMessage": "box value does not exist: this.allBountys(bountyId).value"
-  },
-  {
-    "teal": 607,
-    "source": "contracts\\AlgocredBountyManager.algo.ts:127"
-  },
-  {
-    "teal": 608,
+    "teal": 558,
     "source": "contracts\\AlgocredBountyManager.algo.ts:99"
   },
   {
-    "teal": 611,
+    "teal": 561,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 612,
+    "teal": 562,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 613,
+    "teal": 563,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 616,
+    "teal": 566,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25",
     "errorMessage": "this contract does not implement the given ABI method for create NoOp"
   },
   {
-    "teal": 619,
+    "teal": 569,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 620,
+    "teal": 570,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 621,
+    "teal": 571,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 622,
+    "teal": 572,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 623,
+    "teal": 573,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 624,
+    "teal": 574,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 627,
+    "teal": 577,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25",
     "errorMessage": "this contract does not implement the given ABI method for call NoOp"
   },
   {
-    "teal": 630,
+    "teal": 580,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 631,
+    "teal": 581,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 632,
+    "teal": 582,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 633,
+    "teal": 583,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 634,
+    "teal": 584,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 635,
+    "teal": 585,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 636,
+    "teal": 586,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 639,
+    "teal": 589,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 640,
+    "teal": 590,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 641,
+    "teal": 591,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 642,
+    "teal": 592,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 643,
+    "teal": 593,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 644,
+    "teal": 594,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 645,
+    "teal": 595,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 646,
+    "teal": 596,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 647,
+    "teal": 597,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 648,
+    "teal": 598,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 649,
+    "teal": 599,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 650,
+    "teal": 600,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 651,
+    "teal": 601,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 652,
+    "teal": 602,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 653,
+    "teal": 603,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 654,
+    "teal": 604,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 655,
+    "teal": 605,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 656,
+    "teal": 606,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 657,
+    "teal": 607,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 658,
+    "teal": 608,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 659,
+    "teal": 609,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   },
   {
-    "teal": 660,
+    "teal": 610,
     "source": "contracts\\AlgocredBountyManager.algo.ts:25"
   }
 ]

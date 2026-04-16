@@ -168,11 +168,13 @@ export default function BountyDetailPage() {
       const appId = getAppId()
       const client = getClient(algorand, activeAccount.address, transactionSigner)
 
-      // The TEALScript contract was compiled without a BoxMap prefix, so the key length is exactly 40 bytes.
-      // Box value = address (32) + uint64 (8) + string (2+text) + string (2+url) + uint64 (8) bytes
+      // ABI-encoded SubmissionRecord layout (TEALScript BoxMap, no key prefix):
+      //   Key  : bountyId (8 bytes) + hunter pubkey (32 bytes) = 40 bytes
+      //   Value head (52 bytes): hunter addr (32) | bountyId (8) | text-offset (2) | url-offset (2) | submittedAt (8)
+      //   Value tail: [2-byte text length] + text bytes + [2-byte url length] + url bytes
       const baseMBR = 2500
       const keyLen = 40
-      const valueLen = 32 + 8 + 2 + text.length + 2 + url.length + 8
+      const valueLen = 52 + 2 + text.length + 2 + url.length  // head + tail (with length prefixes)
       const totalMBR = baseMBR + 400 * (keyLen + valueLen)
 
       // ── Build box key for reference ──

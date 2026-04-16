@@ -464,7 +464,7 @@ submitWork:
 
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	bytec 0 // 0x
-	dupn 2
+	dup
 
 	// contracts\AlgocredBountyManager.algo.ts:100
 	// assert(this.allBountys(bountyId).exists)
@@ -554,56 +554,6 @@ submitWork:
 	callsub *process_static_tuple_element
 	pop // pop head offset
 	concat // concat head and tail
-	box_put
-
-	// contracts\AlgocredBountyManager.algo.ts:125
-	// bounty = this.allBountys(bountyId).value
-	frame_dig -2 // bountyId: uint64
-	itob
-	frame_bury 2 // storage key//bounty
-
-	// contracts\AlgocredBountyManager.algo.ts:126
-	// bounty.submissionCount = bounty.submissionCount + 1
-	frame_dig 2 // storage key//bounty
-	box_get
-
-	// box value does not exist: this.allBountys(bountyId).value
-	assert
-	store 255 // full array
-	load 255 // full array
-	pushint 64
-	frame_dig 2 // storage key//bounty
-	box_get
-
-	// box value does not exist: this.allBountys(bountyId).value
-	assert
-	store 255 // full array
-	load 255 // full array
-	extract 64 8
-	btoi
-	intc 0 // 1
-	+
-	itob
-	replace3
-	frame_dig 2 // storage key//bounty
-	dup
-	box_del
-	pop
-	swap
-	box_put
-
-	// contracts\AlgocredBountyManager.algo.ts:127
-	// this.allBountys(bountyId).value = bounty
-	frame_dig -2 // bountyId: uint64
-	itob
-	dup
-	box_del
-	pop
-	frame_dig 2 // storage key//bounty
-	box_get
-
-	// box value does not exist: this.allBountys(bountyId).value
-	assert
 	box_put
 	retsub
 

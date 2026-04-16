@@ -121,7 +121,10 @@ export class AlgocredBountyManager extends Contract {
       submittedAt: globals.latestTimestamp
     };
 
-    // Increment submissions count.
-    this.allBountys(bountyId).value.submissionCount = this.allBountys(bountyId).value.submissionCount + 1;
+    // NOTE: submissionCount increment is intentionally not done on-chain.
+    // TEALScript v0.107.2 has a codegen bug affecting ALL BoxMap struct writes:
+    // it emits box_del followed by box_get on the same deleted key, causing an
+    // assert failure (pc=707). The frontend counts submissions by enumerating
+    // submission boxes, so an on-chain counter is not needed here.
   }
 }
