@@ -1,11 +1,15 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
-import { mockBounties } from '@/lib/mock-data'
 import { NeonButton, NeonInput, GlowingCard, CyberBadge } from '@/components/cyber-ui'
+import { AlgorandClient } from '@algorandfoundation/algokit-utils'
+import algosdk from 'algosdk'
+import { Loader2 } from 'lucide-react'
 
 export default function BountiesPage() {
+  const [bounties, setBounties] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState<string>('all')
   const [difficulty, setDifficulty] = useState<string>('all')
@@ -16,12 +20,73 @@ export default function BountiesPage() {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 6
 
-  const categories = ['all', ...new Set(mockBounties.map(b => b.category))]
+  useEffect(() => {
+    async function fetchBounties() {
+      const NEXT_PUBLIC_MANAGER_APP_ID = process.env.NEXT_PUBLIC_MANAGER_APP_ID
+      if (!NEXT_PUBLIC_MANAGER_APP_ID) {
+        setLoading(false)
+        return
+      }
+
+      try {
+        const algorand = AlgorandClient.fromConfig({
+          algodConfig: { server: "https://testnet-api.algonode.cloud", port: "", token: "" },
+          indexerConfig: { server: "https://testnet-idx.algonode.cloud", port: "", token: "" },
+        })
+
+        const appId = Number(NEXT_PUBLIC_MANAGER_APP_ID)
+        const boxResponse = await algorand.client.indexer.searchForApplicationBoxes(appId).do()
+        
+        const parsedBounties = []
+        const abiType = algosdk.ABIType.from('(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64)')
+        
+        for (const box of boxResponse.boxes) {
+          try {
+            const boxValue = await algorand.client.algod.getApplicationBoxByName(appId, box.name).do()
+            const decoded = abiType.decode(boxValue.value) as any[]
+            
+            parsedBounties.push({
+              id: String(decoded[0]),
+              title: String(decoded[1]),
+              category: String(decoded[2]),
+              shortDescription: String(decoded[3]),
+              description: String(decoded[3]),
+              posterId: String(decoded[4]),
+              poster: {
+                displayName: String(decoded[4]).substring(0, 6) + '...',
+                rating: Number(decoded[9]) || 4.5,
+              },
+              imageUrl: String(decoded[5]),
+              reward: Number(decoded[6]) / 1e6, // MicroAlgos to Algos
+              currency: 'ALGO',
+              status: 'open',
+              difficulty: 'intermediate',
+              createdAt: new Date().toISOString(), // Mocking creation time
+              deadline: `${Math.floor((Number(decoded[7]) - Date.now()/1000) / 3600)}h`,
+              skills: [],
+            })
+          } catch (decodeErr) {
+            console.warn(`Skipping invalid box ${box.name}:`, decodeErr)
+          }
+        }
+        
+        setBounties(parsedBounties)
+      } catch (err) {
+        console.error("Failed to fetch bounties", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    
+    fetchBounties()
+  }, [])
+
+  const categories = ['all', ...Array.from(new Set(bounties.map(b => b.category)))]
   const statuses = ['all', 'open', 'in-review', 'completed', 'disputed']
   const repFilters = ['all', '3', '4', '4.5']
 
   const filtered = useMemo(() => {
-    let result = [...mockBounties]
+    let result = [...bounties]
 
     if (search) {
       result = result.filter(b =>
@@ -56,7 +121,7 @@ export default function BountiesPage() {
     }
 
     return result
-  }, [search, category, difficulty, status, minRep, sortBy])
+  }, [bounties, search, category, difficulty, status, minRep, sortBy])
 
   const totalPages = Math.ceil(filtered.length / itemsPerPage)
   const paginatedBounties = filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
@@ -188,7 +253,14 @@ export default function BountiesPage() {
 
           {/* Bounty Grid */}
           <div className="flex-1">
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {loading ? (
+              <div className="flex flex-col items-center justify-center py-20 text-electric-cyan">
+                <Loader2 className="w-12 h-12 animate-spin mb-4" />
+                <p className="text-xl font-bold tracking-widest uppercase">Syncing Blockchain Data...</p>
+                <p className="text-sm text-muted-silver mt-2">Connecting to Algorand TestNet</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
               {paginatedBounties.map((bounty) => (
                 <Link key={bounty.id} href={`/bounties/${bounty.id}`}>
                   <GlowingCard
@@ -261,9 +333,10 @@ export default function BountiesPage() {
                 </Link>
               ))}
             </div>
+            )}
 
             {/* No results */}
-            {filtered.length === 0 && (
+            {!loading && filtered.length === 0 && (
               <div className="text-center py-20">
                 <p className="text-muted-silver text-xl mb-6">No bounties found</p>
                 <Link href="/bounties/create">

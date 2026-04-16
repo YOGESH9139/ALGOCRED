@@ -29,11 +29,13 @@ export interface WalletContextShape {
   transactions: Transaction[]
   connect: () => Promise<void>
   disconnect: () => void
+  activeAccount: any | null
+  transactionSigner: any | null
 }
 
 // ── The bridge hook ─────────────────────────────────────────────────────────
 export function useWallet(): WalletContextShape {
-  const { activeAddress, activeWallet } = useTxnWallet()
+  const { activeAddress, activeWallet, activeAccount, transactionSigner } = useTxnWallet()
 
   const isConnected = !!activeAddress
   const connected = isConnected
@@ -68,5 +70,7 @@ export function useWallet(): WalletContextShape {
     transactions: mockTransactions,
     connect,
     disconnect,
+    activeAccount: activeAccount || null,
+    transactionSigner,
   }
 }

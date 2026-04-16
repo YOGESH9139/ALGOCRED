@@ -1,13 +1,80 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { AlgorandClient } from '@algorandfoundation/algokit-utils'
+import algosdk from 'algosdk'
+import { Loader2 } from 'lucide-react'
 import { NeonButton, GlowingCard, CyberBadge } from '@/components/cyber-ui'
 import { useWallet } from '@/lib/wallet-context'
 import { CursorGlow } from '@/components/root-layout-client'
 
 export default function DashboardPage() {
-  const { connected, user } = useWallet()
+  const { connected, user, activeAccount } = useWallet()
+  const [bountiesPosted, setBountiesPosted] = useState(0)
+  const [totalPaid, setTotalPaid] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+  const [reputation, setReputation] = useState(0)
+  const [recentActions, setRecentActions] = useState<any[]>([])
+
+  useEffect(() => {
+    async function fetchStats() {
+      if (!activeAccount || !process.env.NEXT_PUBLIC_MANAGER_APP_ID) {
+        setIsLoading(false)
+        return
+      }
+
+      try {
+        const algorand = AlgorandClient.fromConfig({
+          algodConfig: { server: "https://testnet-api.algonode.cloud", port: "", token: "" },
+          indexerConfig: { server: "https://testnet-idx.algonode.cloud", port: "", token: "" },
+        })
+        const appId = Number(process.env.NEXT_PUBLIC_MANAGER_APP_ID)
+        
+        // Fetch Bounties
+        const boxResponse = await algorand.client.indexer.searchForApplicationBoxes(appId).do()
+        const abiType = algosdk.ABIType.from('(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64)')
+        
+        let posted = 0
+        let paid = 0
+        const activities: any[] = []
+        
+        for (const box of boxResponse.boxes) {
+          try {
+            const boxValue = await algorand.client.algod.getApplicationBoxByName(appId, box.name).do()
+            if (box.name.length === 8) { // Likely a bounty ID box (uint64)
+              const decoded = abiType.decode(boxValue.value) as any[]
+              if (decoded[4] === activeAccount.address) {
+                posted++
+                paid += Number(decoded[6]) / 1e6
+                activities.push({
+                   icon: '📋',
+                   title: `Posted bounty: ${decoded[1]}`,
+                   subtitle: `${Number(decoded[6])/1e6} ALGO`,
+                   time: 'On-chain'
+                })
+              }
+            } else if (box.name.length === 32) { // Likely a leaderboard address box
+              const boxAddr = algosdk.encodeAddress(box.name)
+              if (boxAddr === activeAccount.address) {
+                setReputation(Number(algosdk.decodeUint64(boxValue.value)))
+              }
+            }
+          } catch (e) { /* skip non-bounty boxes */ }
+        }
+        
+        setBountiesPosted(posted)
+        setTotalPaid(paid)
+        setRecentActions(activities.slice(0, 5))
+
+      } catch (err) {
+        console.error("Dashboard Stats Error:", err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchStats()
+  }, [activeAccount])
 
   if (!connected) {
     return (
@@ -21,10 +88,10 @@ export default function DashboardPage() {
   }
 
   const kpiCards = [
-    { label: 'Bounties Posted', value: '12', trend: '+3 this week', icon: '◉', color: 'cyan' },
-    { label: 'Tasks Completed', value: '47', trend: '+8 this month', icon: '✓', color: 'magenta' },
-    { label: 'Total Paid', value: '2,450 USDC', trend: 'Mock ALGO/USDC', icon: '◫', color: 'purple' },
-    { label: 'Reputation Score', value: '4.8', trend: 'Top 5%', icon: '★', color: 'cyan' },
+    { label: 'Bounties Posted', value: bountiesPosted.toString(), trend: 'On-chain Live', icon: '◉', color: 'cyan' },
+    { label: 'Tasks Completed', value: reputation.toString(), trend: 'On-chain', icon: '✓', color: 'magenta' },
+    { label: 'Total Escrowed', value: `${totalPaid} ALGO`, trend: 'On-chain Live', icon: '◫', color: 'purple' },
+    { label: 'Reputation Score', value: (reputation * 0.5).toFixed(1), trend: 'Hunter', icon: '★', color: 'cyan' },
   ]
 
   const recentActivity = [
@@ -73,8 +140,14 @@ export default function DashboardPage() {
               <GlowingCard 
                 key={i} 
                 glow={kpi.color as 'cyan' | 'magenta' | 'purple'}
-                className="group hover:-translate-y-1 transition-all duration-300"
+                className="group hover:-translate-y-1 transition-all duration-300 relative"
               >
+                {isLoading && (i === 0 || i === 2) ? (
+                  <div className="absolute inset-0 bg-deep-void/80 flex items-center justify-center z-10 backdrop-blur-sm">
+                    <Loader2 className="w-6 h-6 animate-spin text-electric-cyan" />
+                  </div>
+                ) : null}
+
                 <div className="flex items-start justify-between mb-3">
                   <span className="text-2xl">{kpi.icon}</span>
                   <span className="text-xs text-toxic-green bg-toxic-green/20 px-2 py-0.5 rounded">
@@ -146,7 +219,7 @@ export default function DashboardPage() {
                   <span>◐</span> Recent Activity
                 </h3>
                 <div className="space-y-4">
-                  {recentActivity.map((item, i) => (
+                  {recentActions.length > 0 ? recentActions.map((item, i) => (
                     <div key={i} className="flex items-start gap-4 group">
                       <div className="w-10 h-10 rounded-lg bg-deep-void border border-electric-cyan/30 flex items-center justify-center text-lg group-hover:border-electric-cyan transition-colors">
                         {item.icon}
@@ -157,7 +230,9 @@ export default function DashboardPage() {
                       </div>
                       <span className="text-xs text-muted-silver whitespace-nowrap">{item.time}</span>
                     </div>
-                  ))}
+                  )) : (
+                    <p className="text-muted-silver text-center py-8">No recent activity detected on-chain.</p>
+                  )}
                 </div>
               </GlowingCard>
             </div>
