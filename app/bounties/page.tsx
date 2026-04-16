@@ -7,6 +7,8 @@ import { AlgorandClient } from '@algorandfoundation/algokit-utils'
 import algosdk from 'algosdk'
 import { Loader2 } from 'lucide-react'
 
+
+
 export default function BountiesPage() {
   const [bounties, setBounties] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -19,6 +21,7 @@ export default function BountiesPage() {
   const [showFilters, setShowFilters] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 6
+
 
   useEffect(() => {
     async function fetchBounties() {
@@ -36,15 +39,15 @@ export default function BountiesPage() {
 
         const appId = Number(NEXT_PUBLIC_MANAGER_APP_ID)
         const boxResponse = await algorand.client.indexer.searchForApplicationBoxes(appId).do()
-        
+
         const parsedBounties = []
         const abiType = algosdk.ABIType.from('(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64)')
-        
+
         for (const box of boxResponse.boxes) {
           try {
             const boxValue = await algorand.client.algod.getApplicationBoxByName(appId, box.name).do()
             const decoded = abiType.decode(boxValue.value) as any[]
-            
+
             parsedBounties.push({
               id: String(decoded[0]),
               title: String(decoded[1]),
@@ -62,14 +65,14 @@ export default function BountiesPage() {
               status: 'open',
               difficulty: 'intermediate',
               createdAt: new Date().toISOString(), // Mocking creation time
-              deadline: `${Math.floor((Number(decoded[7]) - Date.now()/1000) / 3600)}h`,
+              deadline: `${Math.floor((Number(decoded[7]) - Date.now() / 1000) / 3600)}h`,
               skills: [],
             })
           } catch (decodeErr) {
             console.warn(`Skipping invalid box ${box.name}:`, decodeErr)
           }
         }
-        
+
         setBounties(parsedBounties)
       } catch (err) {
         console.error("Failed to fetch bounties", err)
@@ -77,7 +80,7 @@ export default function BountiesPage() {
         setLoading(false)
       }
     }
-    
+
     fetchBounties()
   }, [])
 
@@ -179,11 +182,10 @@ export default function BountiesPage() {
                     <button
                       key={s}
                       onClick={() => setStatus(s)}
-                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${
-                        status === s
+                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${status === s
                           ? 'bg-electric-cyan text-deep-void'
                           : 'border border-electric-cyan/50 text-electric-cyan hover:bg-electric-cyan/20'
-                      }`}
+                        }`}
                     >
                       {s === 'all' ? 'All' : s.replace('-', ' ')}
                     </button>
@@ -199,11 +201,10 @@ export default function BountiesPage() {
                     <button
                       key={r}
                       onClick={() => setMinRep(r)}
-                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${
-                        minRep === r
+                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${minRep === r
                           ? 'bg-neon-magenta text-deep-void'
                           : 'border border-neon-magenta/50 text-neon-magenta hover:bg-neon-magenta/20'
-                      }`}
+                        }`}
                     >
                       {r === 'all' ? 'Any' : `${r}+`}
                     </button>
@@ -261,78 +262,78 @@ export default function BountiesPage() {
               </div>
             ) : (
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-              {paginatedBounties.map((bounty) => (
-                <Link key={bounty.id} href={`/bounties/${bounty.id}`}>
-                  <GlowingCard
-                    glow={bounty.reward > 10000 ? 'magenta' : bounty.reward > 5000 ? 'purple' : 'cyan'}
-                    className="h-full group hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden"
-                  >
-                    {/* Animated border glow on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="absolute inset-0 bg-gradient-to-r from-electric-cyan via-neon-magenta to-acid-purple animate-border-flow" style={{ backgroundSize: '200% 100%' }} />
-                    </div>
-
-                    <div className="relative z-10 bg-charcoal-steel p-4 h-full">
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="flex-1 min-w-0">
-                          <h3 className="text-base font-bold text-foreground group-hover:text-electric-cyan transition-colors truncate">
-                            {bounty.title}
-                          </h3>
-                          <p className="text-electric-cyan text-xs font-bold uppercase tracking-widest">
-                            {bounty.category}
-                          </p>
-                        </div>
-                        <CyberBadge 
-                          variant={
-                            bounty.status === 'open' ? 'cyan' : 
-                            bounty.status === 'completed' ? 'success' : 
-                            bounty.status === 'disputed' ? 'magenta' : 'purple'
-                          }
-                        >
-                          {bounty.status}
-                        </CyberBadge>
+                {paginatedBounties.map((bounty) => (
+                  <Link key={bounty.id} href={`/bounties/${bounty.id}`}>
+                    <GlowingCard
+                      glow={bounty.reward > 10000 ? 'magenta' : bounty.reward > 5000 ? 'purple' : 'cyan'}
+                      className="h-full group hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden"
+                    >
+                      {/* Animated border glow on hover */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute inset-0 bg-gradient-to-r from-electric-cyan via-neon-magenta to-acid-purple animate-border-flow" style={{ backgroundSize: '200% 100%' }} />
                       </div>
 
-                      <p className="text-muted-silver text-sm mb-4 line-clamp-2">
-                        {bounty.shortDescription}
-                      </p>
+                      <div className="relative z-10 bg-charcoal-steel p-4 h-full">
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-base font-bold text-foreground group-hover:text-electric-cyan transition-colors truncate">
+                              {bounty.title}
+                            </h3>
+                            <p className="text-electric-cyan text-xs font-bold uppercase tracking-widest">
+                              {bounty.category}
+                            </p>
+                          </div>
+                          <CyberBadge
+                            variant={
+                              bounty.status === 'open' ? 'cyan' :
+                                bounty.status === 'completed' ? 'success' :
+                                  bounty.status === 'disputed' ? 'magenta' : 'purple'
+                            }
+                          >
+                            {bounty.status}
+                          </CyberBadge>
+                        </div>
 
-                      {/* Reward */}
-                      <div className="mb-3 p-2 bg-deep-void/50 border border-electric-cyan/30 rounded">
-                        <p className="text-xs text-muted-silver mb-1">Reward</p>
-                        <p className="text-xl font-black text-neon-magenta">
-                          {bounty.reward.toLocaleString()} {bounty.currency}
+                        <p className="text-muted-silver text-sm mb-4 line-clamp-2">
+                          {bounty.shortDescription}
                         </p>
-                        <p className="text-xs text-muted-silver">(Algorand)</p>
-                      </div>
 
-                      {/* Poster info */}
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="w-8 h-8 rounded bg-gradient-to-br from-electric-cyan to-neon-magenta flex items-center justify-center text-xs font-bold text-deep-void">
-                          {bounty.poster.displayName.charAt(0)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm text-foreground truncate">{bounty.poster.displayName}</p>
-                          <p className="text-xs text-warning-amber">
-                            {'★'.repeat(Math.floor(bounty.poster.rating))} {bounty.poster.rating.toFixed(1)}
+                        {/* Reward */}
+                        <div className="mb-3 p-2 bg-deep-void/50 border border-electric-cyan/30 rounded">
+                          <p className="text-xs text-muted-silver mb-1">Reward</p>
+                          <p className="text-xl font-black text-neon-magenta">
+                            {bounty.reward.toLocaleString()} {bounty.currency}
                           </p>
+                          <p className="text-xs text-muted-silver">(Algorand)</p>
                         </div>
+
+                        {/* Poster info */}
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-8 h-8 rounded bg-gradient-to-br from-electric-cyan to-neon-magenta flex items-center justify-center text-xs font-bold text-deep-void">
+                            {bounty.poster.displayName.charAt(0)}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm text-foreground truncate">{bounty.poster.displayName}</p>
+                            <p className="text-xs text-warning-amber">
+                              {'★'.repeat(Math.floor(bounty.poster.rating))} {bounty.poster.rating.toFixed(1)}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Time info */}
+                        <p className="text-xs text-muted-silver mb-4">
+                          {bounty.status === 'open' ? `Closes: ${bounty.deadline}` : `Closed`}
+                        </p>
+
+                        {/* CTA */}
+                        <NeonButton size="sm" className="w-full">
+                          View Details
+                        </NeonButton>
                       </div>
-
-                      {/* Time info */}
-                      <p className="text-xs text-muted-silver mb-4">
-                        {bounty.status === 'open' ? `Closes: ${bounty.deadline}` : `Closed`}
-                      </p>
-
-                      {/* CTA */}
-                      <NeonButton size="sm" className="w-full">
-                        View Details
-                      </NeonButton>
-                    </div>
-                  </GlowingCard>
-                </Link>
-              ))}
-            </div>
+                    </GlowingCard>
+                  </Link>
+                ))}
+              </div>
             )}
 
             {/* No results */}
@@ -359,11 +360,10 @@ export default function BountiesPage() {
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`w-10 h-10 font-bold transition-all ${
-                      currentPage === page
+                    className={`w-10 h-10 font-bold transition-all ${currentPage === page
                         ? 'bg-electric-cyan text-deep-void'
                         : 'border border-electric-cyan/50 text-electric-cyan hover:bg-electric-cyan/20'
-                    }`}
+                      }`}
                   >
                     {page}
                   </button>

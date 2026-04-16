@@ -21,6 +21,8 @@ export default function ProfilePage() {
     rating: 4.8
   })
   const [recentActions, setRecentActions] = useState<any[]>([])
+  const [userBounties, setUserBounties] = useState<any[]>([])
+  const [userSubmissions, setUserSubmissions] = useState<any[]>([])
 
   useEffect(() => {
     async function fetchProfileData() {
@@ -37,20 +39,32 @@ export default function ProfilePage() {
         const appId = Number(process.env.NEXT_PUBLIC_MANAGER_APP_ID)
 
         const boxResponse = await algorand.client.indexer.searchForApplicationBoxes(appId).do()
-        const abiType = algosdk.ABIType.from('(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64)')
+        const bountyAbi = algosdk.ABIType.from('(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64,uint64)')
+        const submissionAbi = algosdk.ABIType.from('(address,uint64,string,string,uint64,uint64)')
 
         let postedCount = 0
         let totalPaid = 0
+        let totalEarned = 0
         const activities: any[] = []
+        const bounties: any[] = []
+        const submissions: any[] = []
 
         for (const box of boxResponse.boxes) {
           try {
             const boxValue = await algorand.client.algod.getApplicationBoxByName(appId, box.name).do()
+            
             if (box.name.length === 8) {
-              const decoded = abiType.decode(boxValue.value) as any[]
-              if (decoded[4] === activeAccount.address) {
+              const decoded = bountyAbi.decode(boxValue.value) as any[]
+              if (String(decoded[4]) === activeAccount.address) {
                 postedCount++
                 totalPaid += Number(decoded[6]) / 1e6
+                bounties.push({
+                  id: String(decoded[0]),
+                  title: String(decoded[1]),
+                  reward: Number(decoded[6]) / 1e6,
+                  isClosed: Number(decoded[11]) === 1,
+                  category: String(decoded[2])
+                })
                 activities.push({
                   icon: '◉',
                   title: `Posted: ${decoded[1]}`,
@@ -58,17 +72,34 @@ export default function ProfilePage() {
                   date: 'On-chain'
                 })
               }
+            } else if (box.name.length === 40) {
+              const decoded = submissionAbi.decode(boxValue.value) as any[]
+              if (String(decoded[0]) === activeAccount.address) {
+                // Fetch bounty title for the submission
+                let bTitle = 'Unknown Bounty'
+                try {
+                    const bId = decoded[1]
+                    const bBox = await algorand.client.algod.getApplicationBoxByName(appId, algosdk.encodeUint64(bId)).do()
+                    const bDecoded = bountyAbi.decode(bBox.value) as any[]
+                    bTitle = String(bDecoded[1])
+                    if (Number(decoded[5]) === 1) { // Approved
+                        totalEarned += Number(bDecoded[6]) / 1e6
+                    }
+                } catch {}
+
+                submissions.push({
+                  bountyId: String(decoded[1]),
+                  bountyTitle: bTitle,
+                  text: String(decoded[2]),
+                  status: Number(decoded[5]),
+                  date: new Date(Number(decoded[4]) * 1000).toLocaleDateString()
+                })
+              }
             } else if (box.name.length === 32) {
               const boxAddr = algosdk.encodeAddress(box.name)
               if (boxAddr === activeAccount.address) {
                 const rep = Number(algosdk.decodeUint64(boxValue.value))
                 setStats(s => ({ ...s, completed: rep, rating: 4.8 + (rep * 0.1 > 0.2 ? 0.2 : 0) }))
-                activities.push({
-                  icon: '⭐',
-                  title: 'Reputation Milestone',
-                  detail: `Current Score: ${rep}`,
-                  date: 'Live'
-                })
               }
             }
           } catch (e) { }
@@ -78,8 +109,11 @@ export default function ProfilePage() {
           ...s,
           posted: postedCount,
           paid: totalPaid,
+          earned: totalEarned,
         }))
         setRecentActions(activities.slice(0, 5))
+        setUserBounties(bounties)
+        setUserSubmissions(submissions)
 
       } catch (err) {
         console.error("Profile fetch error:", err)
@@ -237,46 +271,54 @@ export default function ProfilePage() {
             </button>
           </div>
 
-          {/* Tab Content */}
-          <div className="grid lg:grid-cols-2 gap-6">
-            {/* Summary & Chart placeholder */}
-            <div>
-              <p className="text-muted-silver mb-4">
-                {activeTab === 'poster'
-                  ? 'Your reputation as a bounty poster reflects how you treat workers: timely payments, clear communication, and fair ratings.'
-                  : 'Your reputation as a worker reflects your quality of work, timeliness, and professionalism.'}
-              </p>
-
-              {/* Placeholder chart */}
-              <div className="h-40 bg-deep-void/50 border border-electric-cyan/20 rounded-lg flex items-end justify-around p-4">
-                {[4.2, 4.5, 4.3, 4.8, 4.6, 4.9].map((rating, i) => (
-                  <div
-                    key={i}
-                    className={`w-8 rounded-t transition-all ${activeTab === 'poster' ? 'bg-electric-cyan' : 'bg-neon-magenta'}`}
-                    style={{ height: `${(rating / 5) * 100}%` }}
-                  />
-                ))}
-              </div>
-              <p className="text-xs text-muted-silver text-center mt-2">Ratings over time (mock data)</p>
-            </div>
-
-            {/* Recent Reviews */}
-            <div>
-              <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">Recent Reviews</h3>
-              <div className="space-y-4">
-                {(activeTab === 'poster' ? posterReviews : workerReviews).map((review, i) => (
-                  <div key={i} className="border-l-2 border-electric-cyan/50 pl-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-foreground">{review.from}</span>
-                      <span className="text-warning-amber text-sm">{'★'.repeat(review.rating)}</span>
-                    </div>
-                    <p className="text-xs text-muted-silver mb-1">{review.role}</p>
-                    <p className="text-sm text-muted-silver">&ldquo;{review.comment}&rdquo;</p>
+            {/* Details Content */}
+            <div className="space-y-6">
+              {activeTab === 'poster' ? (
+                <div>
+                  <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">Bounties Created</h3>
+                  <div className="space-y-4">
+                    {userBounties.length === 0 && <p className="text-muted-silver text-sm">No bounties created yet.</p>}
+                    {userBounties.map((b, i) => (
+                      <Link href={`/bounties/${b.id}`} key={i} className="block group">
+                        <div className="p-4 bg-deep-void/50 border border-electric-cyan/20 rounded-lg group-hover:border-electric-cyan transition-colors flex justify-between items-center">
+                          <div>
+                            <p className="font-bold text-foreground group-hover:text-electric-cyan transition-colors">{b.title}</p>
+                            <p className="text-xs text-muted-silver uppercase">{b.category} • {b.reward} ALGO</p>
+                          </div>
+                          <CyberBadge variant={b.isClosed ? 'secondary' : 'success'}>
+                            {b.isClosed ? 'Closed' : 'Open'}
+                          </CyberBadge>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              ) : (
+                <div>
+                  <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">Your Submissions</h3>
+                  <div className="space-y-4">
+                    {userSubmissions.length === 0 && <p className="text-muted-silver text-sm">No submissions made yet.</p>}
+                    {userSubmissions.map((s, i) => (
+                      <Link href={`/bounties/${s.bountyId}`} key={i} className="block group">
+                        <div className={`p-4 bg-deep-void/50 border rounded-lg group-hover:border-neon-magenta transition-colors flex justify-between items-center ${s.status === 1 ? 'border-toxic-green/30' : 'border-electric-cyan/20'}`}>
+                          <div>
+                            <p className="font-bold text-foreground group-hover:text-neon-magenta transition-colors">{s.bountyTitle}</p>
+                            <p className="text-xs text-muted-silver truncate max-w-md">{s.text}</p>
+                            <p className="text-[10px] text-muted-silver mt-1">{s.date}</p>
+                          </div>
+                          <div className="text-right">
+                             {s.status === 0 && <CyberBadge variant="cyan">Pending</CyberBadge>}
+                             {s.status === 1 && <CyberBadge variant="success">Approved</CyberBadge>}
+                             {s.status === 2 && <CyberBadge variant="magenta">Rejected</CyberBadge>}
+                             {s.status === 3 && <CyberBadge variant="warning">Hold</CyberBadge>}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
         </GlowingCard>
 
         {/* Activity Timeline */}

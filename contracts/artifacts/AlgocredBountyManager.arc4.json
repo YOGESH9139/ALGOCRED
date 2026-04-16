@@ -21,7 +21,7 @@
       "args": [
         {
           "name": "config",
-          "type": "(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64)"
+          "type": "(uint64,string,string,string,address,string,uint64,uint64,uint64,uint64,uint64,uint64)"
         }
       ],
       "returns": {
@@ -35,6 +35,27 @@
         {
           "name": "developer",
           "type": "address"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "updateSubmissionStatus",
+      "desc": "Updates the status of a submission.",
+      "args": [
+        {
+          "name": "bountyId",
+          "type": "uint64"
+        },
+        {
+          "name": "hunter",
+          "type": "address"
+        },
+        {
+          "name": "status",
+          "type": "uint64"
         }
       ],
       "returns": {

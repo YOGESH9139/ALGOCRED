@@ -137,21 +137,21 @@ export default function CreateBountyPage() {
 
             const bountyCost = BigInt(Math.floor(parseFloat(formData.rewardAmount) * 1e6));
             const totalRequired = Number(bountyCost) + 1_000_000; // Reward + 1 ALGO Box MBR
-            
+
             // PRE-FLIGHT BALANCE CHECK
             const accountInfo = await algorand.client.algod.accountInformation(activeAccount.address).do();
             const currentBalance = Number(accountInfo.amount);
-            
+
             if (currentBalance < totalRequired) {
                 const deficit = (totalRequired - currentBalance) / 1e6;
-                toast.error(`Insufficient Funds! You have ${currentBalance/1e6} ALGO but this bounty requires ${totalRequired/1e6} ALGO. Please get more ALGO from the faucet.`, { id: toastId });
+                toast.error(`Insufficient Funds! You have ${currentBalance / 1e6} ALGO but this bounty requires ${totalRequired / 1e6} ALGO. Please get more ALGO from the faucet.`, { id: toastId });
                 setIsSubmitting(false);
                 return;
             }
 
             const bountyIdNum = Math.floor(Math.random() * 10000000);
             const bountyIdBig = BigInt(bountyIdNum);
-            
+
             // Approximate deadline (days -> seconds)
             const daysOffset = formData.deadline ? Math.abs((new Date(formData.deadline).getTime() - Date.now()) / 1000) : 86400;
             const endTime = Math.floor(Date.now() / 1000 + daysOffset);
@@ -179,9 +179,10 @@ export default function CreateBountyPage() {
                                 formData.category,
                                 formData.description,
                                 activeAccount.address,
-                                formData.attachments.length > 0 ? formData.attachments[0] : "", 
+                                formData.attachments.length > 0 ? formData.attachments[0] : "",
                                 bountyCost,
                                 BigInt(endTime),
+                                BigInt(0),
                                 BigInt(0),
                                 BigInt(0),
                                 BigInt(0)

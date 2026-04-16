@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { mockBounties } from '@/lib/mock-data'
 import { NeonButton, NeonInput, GlowingCard, CyberBadge } from '@/components/cyber-ui'
 
+
 export default function BrowsePage() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState<string>('all')
