@@ -61,6 +61,31 @@
       "returns": {
         "type": "void"
       }
+    },
+    {
+      "name": "submitWork",
+      "desc": "Hunter submits work to a bounty natively on-chain.\nRequires a payment from the hunter to cover the Box Storage MBR.",
+      "args": [
+        {
+          "name": "mbrPayment",
+          "type": "pay"
+        },
+        {
+          "name": "bountyId",
+          "type": "uint64"
+        },
+        {
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
     }
   ]
 }

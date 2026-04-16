@@ -1,37 +1,35 @@
 # Algocred
-#  Dual‑Reputation Bounties & Payroll on Algorand
 
-AlgoCred is a dApp module for **crypto bounties and payroll** where **both contributors and bounty‑posters** build portable, verifiable reputation from each completed task.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 
+## Built with v0
 
-**Live Demo**: [https://algocred-liart.vercel.app/](https://algocred-liart.vercel.app/)
+This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
 
+[Continue working on v0 →](https://v0.app/chat/projects/prj_iG8HIPJS58B29Kgx7EfkUr1SVYAI)
 
-For every completed bounty:
+## Getting Started
 
-- Worker rates employer, and employer rates worker.  
-- **Payout timing** (on‑time vs delayed) is recorded.  
-- A reputation smart contract aggregates these events into role‑aware scores for each address.  
+First, run the development server:
 
-A batch payroll engine uses **Algorand atomic transaction groups** to pay many wallets in a single all‑or‑nothing operation, reducing operational risk and saving total network fees compared to sending individual transfers on top of Algorand’s already low per‑transaction costs.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Key Features
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Dual‑Sided Reputation
+## Learn More
 
-- On‑chain scores for **contributors** and **employers**.  
-- Ratings plus payout delay metrics feed reliability and fairness scores over time.  
-- Public, queryable profiles for each address.
+To learn more, take a look at the following resources:
 
-### Bounty Workflows
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
 
-- Create bounties with reward, deadline, and acceptance criteria.  
-- Contributors apply and submit work through a guided flow.  
-- Posters review, approve, or request changes from a unified dashboard.
-
-### Atomic Batch Payroll
-
-- Build lists of `(address, amount, asset)` for contractors and employees.  
-- Use **Algorand atomic transaction groups** so all payouts in the batch succeed or all fail (no partial payroll).
+<a href="https://v0.app/chat/api/kiro/clone/mohan-murari-k/Algocred" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
